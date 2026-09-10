@@ -1,0 +1,70 @@
+---
+import logo from "../assets/Line-Logo.png";
+---
+
+<div>
+    <header class="flexRow">
+        <section class="flexRow">
+            <a href=""><img src={logo.src} alt="Logo of Line International Project LLC" width="72px" height="72px"></a>
+            <h2>Line International Project L.L.C.</h2>
+        </section>
+
+        <nav>
+            <ul class="flexRow">
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/locations">Locations</a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+
+<style>
+    :root {
+        --primary-color: #143642;
+    }
+
+    .flexRow {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+    }
+
+    div {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        border-bottom: 2px solid var(--primary-color);
+        padding-inline: 2rem;
+    }
+
+    header {
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        width: 100%;
+        max-width: 1440px;
+        border-inline: 2px solid var(--primary-color);
+
+    }
+
+    section {
+        gap: 1rem;
+    }
+
+    ul {
+        gap: 1rem;
+    }
+
+    li > a {
+
+        padding: 0.5rem
+    }
+
+    li {
+        list-style-type: none;
+    }
+
+
+</style>
