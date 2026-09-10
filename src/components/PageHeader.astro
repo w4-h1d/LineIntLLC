@@ -2,10 +2,11 @@
 import logo from "../assets/Line-Logo.png";
 ---
 
-<div>
-    <header class="flexRow">
+
+<header>
+    <div class="flexRow">
         <section class="flexRow">
-            <a href=""><img src={logo.src} alt="Logo of Line International Project LLC" width="72px" height="72px"></a>
+            <a href="/"><img src={logo.src} alt="Logo of Line International Project LLC" width="72px" height="72px"></a>
             <h2>Line International Project L.L.C.</h2>
         </section>
 
@@ -17,21 +18,16 @@ import logo from "../assets/Line-Logo.png";
                 <li><a href="/locations">Locations</a></li>
             </ul>
         </nav>
-    </header>
-</div>
+    </div>
+</header>
+
 
 <style>
     :root {
         --primary-color: #143642;
     }
 
-    .flexRow {
-        display: flex;
-        flex-flow: row nowrap;
-        align-items: center;
-    }
-
-    div {
+    header {
         display: flex;
         flex-flow: column nowrap;
         align-items: center;
@@ -39,14 +35,13 @@ import logo from "../assets/Line-Logo.png";
         padding-inline: 2rem;
     }
 
-    header {
+    div {
         justify-content: space-between;
         align-items: center;
         padding: 1rem;
         width: 100%;
         max-width: 1440px;
         border-inline: 2px solid var(--primary-color);
-
     }
 
     section {
