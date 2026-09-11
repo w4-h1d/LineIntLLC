@@ -5,13 +5,13 @@
 
 
 <header>
-    <div class="flex-row">
+    <div class="flex-row wrapper">
         <section class="flex-row">
             <a href="/"><img src="/icons/line-logo.svg" alt="Logo of Line International Project LLC" width="72" height="72"></a>
-            <h2>Line International Project L.L.C.</h2>
+            <h2>Line&nbsp;International Project&nbsp;L.L.C.</h2>
         </section>
 
-        <nav>
+        <nav id="navigation">
             <ul class="flex-row">
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#services">Services</a></li>
@@ -19,6 +19,23 @@
                 <li><a href="/locations">Locations</a></li>
             </ul>
         </nav>
+
+        <button aria-label="Menu Button" id="menuButton">
+            <span></span>
+        </button>
+
+        <script>
+            const menuButton = document.getElementById("menuButton");
+            const navigation = document.getElementById("navigation");
+            
+
+            menuButton?.addEventListener("click", () => {
+                if (navigation !== null ) {
+                    navigation.classList.toggle("open");
+                    menuButton.toggleAttribute("opened");
+                }
+            });
+        </script>
     </div>
 </header>
 
@@ -30,12 +47,20 @@
         align-items: center;
         border-bottom: 2px solid var(--primary-200);
         padding-inline: 2rem;
+        color: var(--primary-200);
+        position: relative;
+        z-index: 2;
     }
 
     h2 {
         font-family: var(--inter);
         font-weight: 500;
         font-optical-sizing: auto;
+        font-size: 1.75rem;
+    }
+
+    img {
+        margin-top: 0.5rem;
     }
 
     div {
@@ -45,6 +70,7 @@
         width: 100%;
         max-width: var(--max-width);
         border-inline: 2px solid var(--primary-200);
+        background-color: var(--white-95);
     }
 
     section {
@@ -52,16 +78,150 @@
     }
 
     ul {
-        gap: 1rem;
+        gap: 2rem;
     }
 
     li > a {
-
+        font-size: 1.25rem;
         padding: 0.5rem
     }
 
     li {
         list-style-type: none;
+    }
+
+    button {
+        display: none;
+        width: 3.125rem;
+        height: 3.125rem;
+        border: 1px solid var(--primary-200);
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: all ease-in-out 0.25s;
+        transform-origin: center;
+    }
+
+    button:hover {
+        background-color: var(--primary-200);
+    }
+
+    button:active {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+
+
+
+    @media all and (max-width: 70rem) {
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        li > a {
+            font-size: 1rem;
+        }
+
+        img {
+            width: 3rem;
+            height: 3rem;
+        }
+
+        ul {
+            gap: 1.5rem;
+            
+        }
+    }
+
+    @media all and (max-width: 62rem) {
+
+        nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding-inline: 2rem;
+            transform: translateY(-14rem);
+            border-bottom: 2px solid var(--primary-200);
+            transition: all ease-in-out 0.5s;
+            z-index: -1;
+            background-color: var(--white-95);
+        }
+
+        ul {
+            flex-flow: column nowrap;
+            border-inline: 2px solid var(--primary-200);
+            gap: 0;
+        }
+
+        li {
+            width: 100%;
+        }
+
+        li > a {
+            display: block;
+            border-top: 2px solid var(--primary-200);
+            width: 100%;
+            padding: 1rem
+        }
+
+        li > a:hover {
+            background-color: var(--primary-200);
+            color: var(--white-95);
+            opacity: 1;
+            text-decoration: none;
+            padding-left: 2rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+        }
+
+        button {
+            display: block;
+            flex-flow: column nowrap;
+            justify-content: center;
+            padding: 0.5rem;
+
+        }
+
+        .open {
+            transform: translateY(5.75rem);
+        }
+        span, span::after, span::before {
+            display: block;
+            height: 2px;
+            background-color: var(--primary-200);
+            border-radius: 1rem;
+            transition: all ease-in-out 0.5s;
+        }
+
+        span::before, span::after {
+            content: "";
+        }
+
+        span::before {
+            transform: translateY(-0.625rem);
+        }
+
+        span::after {
+            transform: translateY(0.5rem);
+        }
+
+        button:hover span, button:hover span::after, button:hover span::before {
+            background-color: var(--white-90);
+        }
+
+        button[opened] span::after {
+            transform:  translateY(-0.125rem);
+        }
+
+        button[opened] span {
+            transform: rotate(135deg);
+        }
+
+        button[opened] span::before {
+            transform: translateY(0) rotate(90deg);
+        }
     }
 
 
