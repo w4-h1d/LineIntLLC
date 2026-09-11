@@ -1,65 +1,82 @@
 ---
-import logoW from '../assets/Line-Logo-W.png';
+
 ---
 <footer>
-    <section>
-        <section>
-            <section>
-                <img src={ logoW.src } alt="Logo of Line International Project LLC" width="100" height="100">
-                <h3>Line International Project L.L.C.</h3>
-            </section>
-
-            <section>
-                <h3>Follow us on</h3>
-
-                <section class="flexRow">
-                    <a href="">facebook</a>
-                    <a href="">instagram</a>
-                    <a href="">whatsapp</a>
+    <div class="wrapper">
+        <div class="flex-row flex-start">
+            <div class="logo-social">
+                <section class="logo">
+                    <img src="/icons/line-logo-w.svg" alt="Logo of Line International Project LLC" width="100" height="100">
+                    <h3>Line International<br>Project L.L.C.</h3>
                 </section>
-            </section>
-        </section>
 
-        <section>
-            <section>
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="">Portfolio</a></li>
-                    <li><a href="">Services</a></li>
-                    <li><a href="">Chairman's Message</a></li>
-                    <li><a href="">Start Your Project</a></li>
-                    <li><a href="">About Us</a></li>
-                    <li><a href="">Locations</a></li>
-                </ul>
-            </section>
+                <section class="flex-start social-cont">
+                    <h3>Follow us on</h3>
 
-            <section>
-                <h3>Our Services</h3>
-                <ul>
-                    <li><a href="">Construction Services</a></li>
-                    <li><a href="">Waterproofing Solutions</a></li>
-                    <li><a href="">Design and Decoration</a></li>
-                    <li><a href="">Premium Painting Services</a></li>
-                    <li><a href="">Pest Control</a></li>
-                    <li><a href="">Property Maintenance</a></li>
-                </ul>
-            </section>
+                    <section class="flex-row socials">
+                        <a href="">
+                            <img src="/icons/facebook.svg" alt="Facebook Link" width="20" height="20">
+                        </a>
+                        <a href="">
+                            <img src="/icons/instagram.svg" alt="Instagram Link" width="20" height="20">
+                        </a>
+                        <a href="">
+                            <img src="/icons/whatsapp.svg" alt="WhatsApp Link" width="20" height="20">
+                        </a>
+                    </section>
+                </section>
+            </div>
 
-            <section>
-                <h3>Contact Information</h3>
-                <ul>
-                    <li><img src="" alt="Phone Icon"><a href="tel:+96896127473">+968 9612 7473</a></li>
-                    <li><img src="" alt="Email Icon"><a href="mailto:jakirpllc@gmail.com">jakirpllc@gmail.com</a></li>
-                    <li><img src="" alt="Address Icon"><a href="">Saham 319, P.O. Box 464, Sultanate of Oman</a></li>
-                    
-                </ul>
-            </section>
-        </section>
-    </section>
+            <div class="flex-row links-container">
+                <section>
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#chairman">Chairman's Message</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="">The Golden Footprint of Trade SPC</a></li>
+                        <li><a href="/locations">Locations</a></li>
+                    </ul>
+                </section>
 
-    <p> &copy; 2026 Line International Project L.L.C. All Rights Reserved.</p>
+                <section>
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="">Construction Services</a></li>
+                        <li><a href="">Waterproofing Solutions</a></li>
+                        <li><a href="">Design and Decoration</a></li>
+                        <li><a href="">Premium Painting Services</a></li>
+                        <li><a href="">Pest Control</a></li>
+                        <li><a href="">Property Maintenance</a></li>
+                    </ul>
+                </section>
 
-    <section class="flexRow legal">
+                <section class="contact">
+                    <h3>Contact Information</h3>
+                    <ul>
+                        <li class="flex-row">
+                            <img src="/icons//call.svg" alt="Phone Icon" width="16" height="16">
+                            <a href="tel:+96896127473">+968 9612 7473</a>
+                        </li>
+                        <li class="flex-row">
+                            <img src="/icons//message.svg" alt="Email Icon" width="16" height="16">
+                            <a href="mailto:jakirpllc@gmail.com">jakirpllc@gmail.com</a>
+                        </li>
+                        <li class="flex-row">
+                            <img src="/icons//location.svg" alt="Address Icon" width="16" height="16">
+                            <a href="https://maps.app.goo.gl/dt1cGB1TUAbwMP5A7">Saham 319, P.O. Box 464, <br> Sultanate of Oman</a>
+                        </li>
+                        
+                    </ul>
+                </section>
+            </div>
+        </div>
+
+        <p> &copy; 2026 Line International Project L.L.C. All Rights Reserved.</p>
+    </div>
+
+    <section class="flex-row legal">
         <a href="/privacy">Privacy Policy</a>
         <a href="/cookies">Cookie Policy</a>
         <a href="/sitemap">Sitemap</a>
@@ -67,16 +84,35 @@ import logoW from '../assets/Line-Logo-W.png';
 </footer>
 
 <style>
-    .flexRow {
+    footer {
+        color: var(--white-90);
+        background-color: var(--primary-100);
+        width: 100%;
+        font-size: 0.875rem;
+        line-height: 1.5;
         display: flex;
-        flex-flow: row nowrap;
+        flex-flow: column nowrap;
+        align-items: center;
+        position: relative;
+        padding-inline: 2rem;
+        
     }
 
-    footer {
-        color: oklch(0.215607 0 0);
-        position: absolute;
-        bottom: 0;
+    .wrapper {
         width: 100%;
+        max-width: var(--max-width);
+        border-inline: 2px solid #fff;
+        padding: 1.5rem 1.5rem 5rem;
+        margin-inline: 2rem;
+    }
+
+    .wrapper > div {
+        justify-content: space-between;
+    }
+
+    p {
+        margin-top: 1rem;
+        text-align: center;
     }
 
     img {
@@ -84,7 +120,52 @@ import logoW from '../assets/Line-Logo-W.png';
     }
 
     .legal {
-        gap: 1rem;
+        padding: 1rem 1.5rem;
+        gap: 2rem;
         justify-content: center;
+        border-top: 2px solid hsl(0 0 100%);
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+    }
+
+    .links-container {
+        align-items: flex-start;
+        gap: 6rem;
+    }
+
+    .contact img {
+        margin-right: 1rem;
+        margin-top: 0.2rem;
+    }
+
+    li {
+        list-style-type: none;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: flex-start;
+        margin-top: 1rem;
+    }
+
+    h3 {
+        font-family: var(--inter);
+    }
+
+    .logo > h3 {
+        margin-top: 0.75rem;
+        font-size: 1rem;
+    }
+
+    .social-cont {
+        margin-top: 3rem;
+    }
+
+    .social-cont > h3 {
+        font-weight: 400;
+        margin-bottom: 1rem;
+    }
+
+    .socials {
+        gap: 2rem;
     }
 </style>
