@@ -7,7 +7,7 @@ import PageFooter from "../components/PageFooter.astro";
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
@@ -19,14 +19,14 @@ import PageFooter from "../components/PageFooter.astro";
 		
 	</head>
 	<body>
-		<PageHeader />
+		<PageHeader client:visible/>
 		<slot />
 		<PageFooter />
 
 		<style is:global>
 						:root {
 				--primary-400: #15616D;
-				--primary-200: hsl(196, 53%, 17%);
+				--primary-200: #143642;
 				--primary-100: #041315;
 				--white-90: hsl(0 0 90%);
 				--white-95: hsl(0 0 95%);
@@ -65,7 +65,7 @@ import PageFooter from "../components/PageFooter.astro";
 			a {
 				color: inherit;
 				text-decoration: none;
-				transition: all 0.5s;
+				transition: all 0.25s;
 			}
 
 			a:hover {
@@ -76,6 +76,10 @@ import PageFooter from "../components/PageFooter.astro";
 			a:active {
 				opacity: 0.2;
 				text-decoration: none;
+			}
+
+			html {
+				background-color: var(--primary-100);
 			}
 		</style>
 	</body>
