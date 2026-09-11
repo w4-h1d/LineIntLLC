@@ -1,17 +1,18 @@
 ---
-import logo from "../assets/Line-Logo.png";
+
+
 ---
 
 
 <header>
-    <div class="flexRow">
-        <section class="flexRow">
-            <a href="/"><img src={logo.src} alt="Logo of Line International Project LLC" width="72px" height="72px"></a>
+    <div class="flex-row">
+        <section class="flex-row">
+            <a href="/"><img src="/icons/line-logo.svg" alt="Logo of Line International Project LLC" width="72" height="72"></a>
             <h2>Line International Project L.L.C.</h2>
         </section>
 
         <nav>
-            <ul class="flexRow">
+            <ul class="flex-row">
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="/about">About Us</a></li>
@@ -23,16 +24,18 @@ import logo from "../assets/Line-Logo.png";
 
 
 <style>
-    :root {
-        --primary-color: #143642;
-    }
-
     header {
         display: flex;
         flex-flow: column nowrap;
         align-items: center;
-        border-bottom: 2px solid var(--primary-color);
+        border-bottom: 2px solid var(--primary-200);
         padding-inline: 2rem;
+    }
+
+    h2 {
+        font-family: var(--inter);
+        font-weight: 500;
+        font-optical-sizing: auto;
     }
 
     div {
@@ -40,8 +43,8 @@ import logo from "../assets/Line-Logo.png";
         align-items: center;
         padding: 1rem;
         width: 100%;
-        max-width: 1440px;
-        border-inline: 2px solid var(--primary-color);
+        max-width: var(--max-width);
+        border-inline: 2px solid var(--primary-200);
     }
 
     section {
