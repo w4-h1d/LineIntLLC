@@ -13,10 +13,11 @@
 
         <nav id="navigation">
             <ul class="flex-row">
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="/about">About Us</a></li>
-                <li><a href="/locations">Locations</a></li>
+                { Astro.props.page !== "home" && <li><a href="/">Home</a></li>}
+                <li><a href="/#portfolio">Portfolio</a></li>
+                <li><a href="/#services">Services</a></li>
+                { Astro.props.page !== "about" && <li><a href="/about">About&nbsp;Us</a></li>}
+                { Astro.props.page !== "locations" && <li><a href="/locations">Locations</a></li> }
             </ul>
         </nav>
 
@@ -49,7 +50,7 @@
         padding-inline: 2rem;
         color: var(--primary-200);
         position: relative;
-        z-index: 2;
+        z-index: 10;
     }
 
     h2 {
@@ -140,7 +141,7 @@
             transition: background-color 0.5s;
         }
 
-        header:has(button[opened]) {
+        header:has(button[opened]), div:has(button[opened]) {
             background-color: var(--white-95);
         }
 
@@ -150,7 +151,7 @@
             left: 0;
             width: 100%;
             padding-inline: 2rem;
-            transform: translateY(-14rem);
+            transform: translateY(-18rem);
             border-bottom: var(--border-dark);
             transition: all ease-in-out 0.5s;
             z-index: -1;
