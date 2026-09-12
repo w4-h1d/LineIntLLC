@@ -19,9 +19,9 @@ import PageFooter from "../components/PageFooter.astro";
 		
 	</head>
 	<body>
-		<PageHeader />
+		<PageHeader page={Astro.props.page}/>
 		<slot />
-		<PageFooter />
+		<PageFooter page={Astro.props.page}/>
 
 		<style is:global>
 						:root {
