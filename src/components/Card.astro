@@ -1,0 +1,43 @@
+---
+const {service, description, img, alt} = Astro.props;
+---
+
+<div>
+    <img src={img} alt={alt} width="400" height="267">
+    <article>
+        <h3>{service}</h3>
+        <p>{description}</p>
+    </article>
+</div>
+
+<style>
+    div {
+        width: 25rem;
+        border-radius: 1rem;
+        background-color: var(--primary-900);
+    }
+
+    article {
+        padding: 1rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        color: var(--primary-200);
+    }
+
+    p {
+        font-size: 1rem;
+        color: var(--black-10);
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        line-height: 1.75;
+    }
+
+    img {
+        width: 25rem;
+        height: 16.6875rem;
+        max-width: 100%;
+        border-radius: 1rem;
+    }
+</style>
