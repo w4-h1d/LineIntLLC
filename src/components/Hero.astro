@@ -14,14 +14,23 @@ import heroBG from '../assets/hero-desktop.jpg';
         <div class="border-div stacked-item"></div>
 
         <div class="hero-bg stacked-item stack">
-            <img src={heroBG.src} alt="" class="stacked-item">
+            <!-- <img src={heroBG.src} alt="" class="stacked-item"> -->
             <div class="stacked-item background-overlay"></div>
             <div class="stacked-item background-overlay-2"></div>
         </div>
     </section>
-    <section>
+
+    <section class="partners">
         <h2>Our trusted partners</h2>
+        <div class="flex-row brand-carousel">
+            <img src="/logos/golden-footprint.webp" alt="" width="150" height="150">
+            <img src="/logos/asian-paints.webp" alt="" width="150" height="150">
+            <img src="/logos/national-paints.webp" alt="" width="150" height="150">
+            <img src="/logos/danube.webp" alt="" width="150" height="150">
+            <img src="/logos/sterling-sites.webp" alt="" width="150" height="150">
+        </div>
     </section>
+
 </section>
 
 <style>
@@ -55,6 +64,7 @@ import heroBG from '../assets/hero-desktop.jpg';
         line-height: 1.5;
         margin-top: 2rem;
         text-wrap: pretty;
+        color: var(--black-10);
     }
 
 
@@ -107,10 +117,20 @@ import heroBG from '../assets/hero-desktop.jpg';
     .hero-bg {
         z-index: 0;
         width: 100%;
-        height: 80vh;
+        height: 99vh;
         position: absolute;
         top: 0;
         left: 0;
+        overflow: hidden;
+        background-image: url("/images/hero-desktop.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    img {
+        height: 150px;
+        width: 150px;
     }
 
     .background-overlay {
@@ -133,10 +153,26 @@ import heroBG from '../assets/hero-desktop.jpg';
         )
     }
 
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
+    h2 {
+        font-family: var(--inter);
+        color: var(--primary-200);
+        text-align: center;
+        font-size: 1.5rem;
     }
+
+    .partners {
+        padding: 2rem 2rem 4rem;
+        width: 100%;
+        max-width: var(--max-width);
+        border-inline: var(--border-dark);
+        z-index: 1;
+    }
+
+    .brand-carousel {
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        width: 100%;
+        margin-top: 2rem;
+    }
+
 </style>
