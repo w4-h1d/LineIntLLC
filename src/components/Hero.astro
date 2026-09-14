@@ -53,27 +53,33 @@ import heroBG from '../assets/hero-desktop.jpg';
 
     h1 {
         font-size: 6.5rem;
+        font-size: clamp(2.5rem, 6.5vw, 6.5rem);
         line-height: 1.15;
         font-weight: 400;
         color: var(--primary-200);
         margin-top: 2rem;
+        margin-top: clamp(1rem, 2.5vh, 2rem);
     }
 
     p {
         font-size: 1.25rem;
+        font-size: clamp(0.75rem, 1.25vw, 1.25rem);
         line-height: 1.5;
         margin-top: 2rem;
+        margin-top: clamp(1rem, max(3vh, 3vw), 2rem);
         text-wrap: pretty;
         color: var(--black-10);
     }
 
 
     .wrapper {
+        width: 100%;
         max-width: var(--max-width);
     }
 
     .hero-text {
         width: 55%;
+        width: clamp(16rem, 50vw, 49.5rem);
         padding: 2rem;
         z-index: 2;
         display: flex;
@@ -93,15 +99,17 @@ import heroBG from '../assets/hero-desktop.jpg';
         background-color: var(--primary-400);
         color: var(--white-95);
         padding: 1rem 2.25rem;
+        padding: clamp(0.75rem, 1vw, 1rem) clamp(1.5rem, 2vw, 2.25rem);
         font-size: 1.5rem;
+        font-size: clamp(1rem, 1.5vw, 1.5rem);
         border-radius: 0.75rem;
         transform-origin: center;
-        width: 16.25rem;
-        height: 3.8125rem;
         font-weight: 500;
         text-align: center;
         margin-top: 2rem;
         margin-bottom: 5rem;
+        margin-top: clamp(1rem, max(3vh, 3vw), 2rem);
+        margin-bottom: clamp(2rem, max(3vh, 3vw), 5rem);
     }
 
     a:hover {
@@ -118,6 +126,7 @@ import heroBG from '../assets/hero-desktop.jpg';
         z-index: 0;
         width: 100%;
         height: 99vh;
+        height: clamp(40rem, 65vw, 44rem);
         position: absolute;
         top: 0;
         left: 0;
@@ -172,6 +181,7 @@ import heroBG from '../assets/hero-desktop.jpg';
         flex-wrap: wrap;
         justify-content: space-evenly;
         width: 100%;
+        gap: 1rem;
         margin-top: 2rem;
     }
 
