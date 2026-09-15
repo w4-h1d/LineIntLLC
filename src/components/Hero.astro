@@ -69,6 +69,7 @@ import heroBG from '../assets/hero-desktop.jpg';
         margin-top: clamp(1rem, max(3vh, 3vw), 2rem);
         text-wrap: pretty;
         color: var(--black-10);
+        font-weight: 500;
     }
 
 
@@ -138,8 +139,15 @@ import heroBG from '../assets/hero-desktop.jpg';
     }
 
     img {
-        height: 150px;
-        width: 150px;
+        min-height: 50px;
+        height: clamp(50px, min(9.375vw, 16vh), 150px);
+        max-height: 150px;
+
+        max-width: 150px;
+        width: clamp(50px, min(9.375vw, 16vh), 150px);
+        min-width: 50px;
+
+
     }
 
     .background-overlay {
@@ -167,6 +175,7 @@ import heroBG from '../assets/hero-desktop.jpg';
         color: var(--primary-200);
         text-align: center;
         font-size: 1.5rem;
+        font-size: clamp(0.75rem, 3vh, 1.5rem)
     }
 
     .partners {
@@ -181,8 +190,20 @@ import heroBG from '../assets/hero-desktop.jpg';
         flex-wrap: wrap;
         justify-content: space-evenly;
         width: 100%;
-        gap: 1rem;
+        gap: 2rem;
         margin-top: 2rem;
+    }
+
+    @media all and (max-width: 36rem) {
+        .hero-text {
+            width: 100%;
+        }
+
+        .background-overlay {
+        width: 100%;
+        height: 100%;
+        background: hsla(0, 0%, 100%, 0.75);
+    }
     }
 
 </style>
