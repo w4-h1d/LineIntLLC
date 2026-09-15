@@ -1,37 +1,86 @@
 ---
 import Card from '../components/Card.astro';
+import Card2 from '../components/Card2.astro';
 ---
 
-<section class="section-cont" id="services">
-    <h2>Services We Provide</h2>
-    <section class="services">
-        <Card service="Construction Services" img="/images/construction.webp" alt="Image of construction services." description="We provide robust construction services, combining expert craftsmanship, superior materials, precise execution, and rigorous standards to create durable, modern structures built to last a lifetime." />
+<section class="container" id="services">
+    <section class="services-cont">
+        <h2>Services We Provide</h2>
+        <div class="services flex-row">
+            <Card service="Construction Services" img="/images/construction.webp" alt="Image of construction services." description="We provide robust construction services, combining expert craftsmanship, superior materials, precise execution, and rigorous standards to create durable, modern structures built to last a lifetime." />
 
-        <Card service="Waterproofing Solutions" img="/images/waterproofing.webp" alt="Image of Waterproofing Solutions" description="We provide advanced waterproofing solutions designed to safeguard against moisture and water damage, delivering lasting protection, superior performance, and enhanced structural durability." />
+            <Card service="Waterproofing Solutions" img="/images/waterproofing.webp" alt="Image of Waterproofing Solutions" description="We provide advanced waterproofing solutions designed to safeguard against moisture and water damage, delivering lasting protection, superior performance, and enhanced structural durability." />
 
-        <Card service="Design and Decoration" img="/images/decoration.webp" alt="Image of Design and Decoration" description="We transform interiors with refined design and decoration, blending creativity, functionality, and sophisticated finishes to create distinctive spaces that elevate comfort, style, and visual appeal." />
+            <Card service="Design and Decoration" img="/images/decoration.webp" alt="Image of Design and Decoration" description="We transform interiors with refined design and decoration, blending creativity, functionality, and sophisticated finishes to create distinctive spaces that elevate comfort, style, and visual appeal." />
 
-        <Card service="Premium Painting Services" img="/images/painting.webp" alt="Image of Painting Services" description="We deliver premium painting solutions with meticulous preparation, quality materials, and expert application, creating flawless finishes that enhance aesthetics, durability, and the character of every space." />
+            <Card service="Premium Painting Services" img="/images/painting.webp" alt="Image of Painting Services" description="We deliver premium painting solutions with meticulous preparation, quality materials, and expert application, creating flawless finishes that enhance aesthetics, durability, and the character of every space." />
 
-        <Card service="Pest Control" img="/images/pest.webp" alt="Image of Pest Control" description="We provide professional pest control solutions using effective, responsible treatments to eliminate infestations, protect your property, and maintain clean, healthy, and comfortable environments." />
+            <Card service="Pest Control" img="/images/pest.webp" alt="Image of Pest Control" description="We provide professional pest control solutions using effective, responsible treatments to eliminate infestations, protect your property, and maintain clean, healthy, and comfortable environments." />
 
-        <Card service="Property Maintenance" img="/images/maintenance.webp" alt="Image of Property Maintenance" description="We provide comprehensive property maintenance solutions, combining proactive care, skilled repairs, and reliable service to preserve property performance, appearance, safety, and long-term value." />
+            <Card service="Property Maintenance" img="/images/maintenance.webp" alt="Image of Property Maintenance" description="We provide comprehensive property maintenance solutions, combining proactive care, skilled repairs, and reliable service to preserve property performance, appearance, safety, and long-term value." />
+        </div>
+    </section>
+
+    <section class="reasons-cont">
+        <h3>Why clients choose us?</h3>
+        
+        <div class="reasons">
+            <Card2 title="Proven Track Record" icon="/icons/proven-records-icon.svg" description="Choosing Line International Project L.L.C. means partnering with a company built on trust, quality, and reliability. We have a proven track record of successfully completing our projects with consistent excellence." />
+
+            <Card2 title="Customized Solutions" icon="/icons/customized-solutions-icon.svg" description="Choosing Line International Project L.L.C. means partnering with a company built on trust, quality, and reliability. We have a proven track record of successfully completing our projects with consistent excellence." />
+
+            <Card2 title="Client-Centric Approach" icon="/icons/client-centric-icon.svg" description="We provide customized solutions tailored to meet the specific needs of each client and project, ensuring the best results in every detail. Our experienced team brings strong technical knowledge and practical expertise, guaranteeing professional and efficient execution from start to finish." />
+        </div>
     </section>
 </section>
 
 <style>
-    .section-cont {
+    .container {
         background-color: var(--primary-300);
-        z-index: 1;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        padding-inline: 2rem;
+        
+        background-image: url("/images/services-outline-bg.svg");
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: contain;
+    }
+
+    .services-cont {
+        max-width: var(--max-width);
+        border-inline: var(--border-light);
     }
 
     .services {
-        display: flex;
-        flex-flow: row wrap;
+        flex-wrap: wrap;
         gap: 2rem;
+        justify-content: center;
+        align-items: flex-start;
     }
 
-    h2 {
+    h2, h3 {
         color: var(--white-90);
     }
+
+    h3 {
+        font-family: var(--inter);
+        font-size: 2rem;
+    }
+
+    .reasons-cont {
+        max-width: var(--max-width);
+        border-inline: var(--border-light);
+        border-top: var(--border-light);
+        padding: 5rem;
+    }
+
+    .reasons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin: 4rem 0;
+    }
+
 </style>
