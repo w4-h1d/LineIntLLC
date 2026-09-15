@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 300 300" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(1.13125,0,0,1.13125,-1619.98,-419.694)">
+        <path d="M1442.65,572.593C1442.65,572.593 1484.08,549.198 1502.52,549.201C1523.69,549.203 1535.41,563.557 1544.86,566.151C1555.03,568.945 1574.55,570.136 1582.14,572.989C1590.46,576.112 1595.92,598.146 1574.51,597.641C1562.61,597.36 1529.83,592.454 1529.83,592.454" style="fill:none;stroke:rgb(12,57,64);stroke-width:9px;"/>
+        <path d="M1467.78,539.397C1417.65,429.979 1529.3,336.535 1620.22,393.34" style="fill:none;stroke:rgb(12,57,64);stroke-width:9px;"/>
+        <path d="M1514.15,531.594C1522.57,476.154 1613.79,482.698 1607.57,542.72" style="fill:none;stroke:rgb(12,57,64);stroke-width:9px;"/>
+        <g transform="matrix(1.03403,0,0,0.936915,-57.0146,33.2817)">
+            <ellipse cx="1565.08" cy="458.758" rx="26.164" ry="32.501" style="fill:none;stroke:rgb(12,57,64);stroke-width:9px;"/>
+        </g>
+        <path d="M1654.88,545.761C1666.29,531.121 1675.29,490.709 1669.51,470.547" style="fill:none;stroke:rgb(12,57,64);stroke-width:9px;"/>
+        <path d="M1461.78,615.564C1461.78,615.564 1476.47,607.752 1483.32,608.904C1499.86,611.687 1537.47,631.798 1558.46,630.979C1584.75,629.951 1637.05,593.405 1650.29,584.1C1665.62,573.324 1646.43,556.364 1635.11,562.239C1611.34,574.578 1590.85,585.033 1590.85,585.033" style="fill:none;stroke:rgb(12,57,64);stroke-width:9px;"/>
+        <g transform="matrix(1.87774,0,0,1.26014,-1459.56,-112.868)">
+            <path d="M1658.26,416.193C1662.08,407.202 1669.74,407.202 1673.56,412.261C1677.39,417.32 1677.39,427.438 1673.56,437.556C1670.88,445.144 1664,452.733 1658.26,457.792C1652.52,452.733 1645.63,445.144 1642.95,437.556C1639.12,427.438 1639.12,417.32 1642.95,412.261C1646.78,407.202 1654.43,407.202 1658.26,416.193Z" style="fill:rgb(12,57,64);"/>
+        </g>
+    </g>
+</svg>
