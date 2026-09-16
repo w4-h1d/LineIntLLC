@@ -1,0 +1,61 @@
+---
+import CountryCode from '../components/CountryCode.astro';
+---
+
+<form action="" id="contact-form">
+    <div>
+        <label for="full_name">Name</label>
+        <input type="text" name="full_name" id="full_name" placeholder="Full Name">
+    </div>
+
+    <div>
+        <label for="phone">Phone</label>
+        <CountryCode />
+        <input type="tel" name="phone_number" id="phone_number">
+        <input type="hidden" name="phone" id="phone" placeholder="9000 1000">
+    </div>
+
+    <div>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" placeholder="johndoe@customer.com">
+    </div>
+
+    <div>
+        <label for="location">Location</label>
+        <input type="text" name="location" id="location" placeholder="Project Address">
+    </div>
+
+    <div>
+        <label for="description">Description</label>
+        <textarea name="description" id="description" placeholder="Your dream project"></textarea>
+    </div>
+
+    <div>
+        <button type="submit" id="submit-btn">Send Message</button>
+        <button type="reset">Clear</button>
+    </div>
+
+</form>
+
+<script>
+    const form = document.getElementById("contact-form");
+
+    const submitBtn = document.getElementById("submit-btn");
+
+
+
+    submitBtn?.addEventListener("click", e => {
+        e.preventDefault();
+        const fullNum = country_code.value + phone_number.value;
+        phone.setAttribute("value", fullNum);
+        form?.submit();
+    });
+
+
+</script>
+
+<style>
+    form {
+        padding: 2rem;
+    }
+</style>
