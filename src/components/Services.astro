@@ -29,7 +29,7 @@ import Card2 from '../components/Card2.astro';
 
             <Card2 title="Customized Solutions" icon="/icons/customized-solutions-icon.svg" description="Choosing Line International Project L.L.C. means partnering with a company built on trust, quality, and reliability. We have a proven track record of successfully completing our projects with consistent excellence." />
 
-            <Card2 title="Client-Centric Approach" icon="/icons/client-centric-icon.svg" description="We provide customized solutions tailored to meet the specific needs of each client and project, ensuring the best results in every detail. Our experienced team brings strong technical knowledge and practical expertise, guaranteeing professional and efficient execution from start to finish." />
+            <Card2 title="Client-Centric Approach" icon="/icons/client-centric-icon.svg" classList="last-child" description="We provide customized solutions tailored to meet the specific needs of each client and project, ensuring the best results in every detail. Our experienced team brings strong technical knowledge and practical expertise, guaranteeing professional and efficient execution from start to finish." />
         </div>
     </section>
 </section>
@@ -51,6 +51,8 @@ import Card2 from '../components/Card2.astro';
     .services-cont {
         max-width: var(--max-width);
         border-inline: var(--border-light);
+        width: 100%;
+        padding: 4rem 2rem 6rem;
     }
 
     .services {
@@ -60,6 +62,10 @@ import Card2 from '../components/Card2.astro';
         align-items: flex-start;
     }
 
+    h2 {
+        text-align: center;
+    }
+
     h2, h3 {
         color: var(--white-90);
     }
@@ -67,13 +73,16 @@ import Card2 from '../components/Card2.astro';
     h3 {
         font-family: var(--inter);
         font-size: 2rem;
+        font-weight: 600;
     }
 
     .reasons-cont {
         max-width: var(--max-width);
+        width: 100%;
         border-inline: var(--border-light);
         border-top: var(--border-light);
         padding: 5rem;
+
     }
 
     .reasons {
@@ -81,6 +90,17 @@ import Card2 from '../components/Card2.astro';
         grid-template-columns: 1fr 1fr;
         gap: 1rem;
         margin: 4rem 0;
+    }
+
+    @media all and (max-width: 55rem) {
+        .reasons-cont {
+            padding: 3rem 1.5rem;
+        }
+        
+        .reasons {
+            grid-template-columns: 1fr;
+            margin-top: 2rem
+        }
     }
 
 </style>
