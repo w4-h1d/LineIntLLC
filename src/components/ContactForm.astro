@@ -1,44 +1,50 @@
 ---
 import CountryCode from '../components/CountryCode.astro';
+const { heading } = Astro.props;
 ---
 
-<form action="" id="contact-form">
-    <div>
-        <label for="full_name">Name</label>
-        <input type="text" name="full_name" id="full_name" placeholder="Full Name">
-    </div>
+<section>
+    <h2>{ heading }</h2>
+    <form action="" id="contact-form">
+        <div>
+            <label for="full_name">Name</label>
+            <input type="text" name="full_name" id="full_name" placeholder="Full Name">
+        </div>
 
-    <div>
-        <label for="phone">Phone</label>
-        <CountryCode />
-        <input type="tel" name="phone_number" id="phone_number">
-        <input type="hidden" name="phone" id="phone" placeholder="9000 1000">
-    </div>
+        <div>
+            <label for="phone">Phone</label>
+            <div class="flex-row">
+                <CountryCode />
+                <input type="tel" name="phone_number" id="phone_number" placeholder="9000 1000">
+            </div>
+            <input type="hidden" name="phone" id="phone" >
+        </div>
 
-    <div>
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" placeholder="johndoe@customer.com">
-    </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="johndoe@customer.com">
+        </div>
 
-    <div>
-        <label for="location">Location</label>
-        <input type="text" name="location" id="location" placeholder="Project Address">
-    </div>
+        <div>
+            <label for="location">Location</label>
+            <input type="text" name="location" id="location" placeholder="Project Address">
+        </div>
 
-    <div>
-        <label for="description">Description</label>
-        <textarea name="description" id="description" placeholder="Your dream project"></textarea>
-    </div>
+        <div>
+            <label for="description">Description</label>
+            <textarea name="description" id="description" placeholder="Your dream project"></textarea>
+        </div>
 
-    <div>
-        <button type="submit" id="submit-btn">Send Message</button>
-        <button type="reset">Clear</button>
-    </div>
+        <div class="flex-row">
+            <button type="submit" id="submit-btn">Send Message</button>
+            <button type="reset">Clear</button>
+        </div>
 
-</form>
+    </form>
+</section>
 
 <script>
-    const form = document.getElementById("contact-form");
+/*     const form = document.getElementById("contact-form");
 
     const submitBtn = document.getElementById("submit-btn");
 
@@ -49,13 +55,94 @@ import CountryCode from '../components/CountryCode.astro';
         const fullNum = country_code.value + phone_number.value;
         phone.setAttribute("value", fullNum);
         form?.submit();
-    });
-
-
+    }); */
 </script>
 
 <style>
     form {
         padding: 2rem;
+        font-size: 1.5rem;
+        background-color: var(--white-100);
+        border-radius: 1.25rem;
+        border: 1px solid var(--white-85);
+        box-shadow: 0 0.125rem 0.5rem 0.125rem hsla(0, 0%, 0%, 0.15);
     }
+
+    button, input, textarea {
+        font-size: inherit;
+    }
+
+    label {
+        color: var(--primary-200);
+        margin: 1.5rem 0 1rem;
+        font-weight: 500;
+    }
+
+    label, input, textarea {
+        display: block;
+        width: 100%;
+    }
+
+    input, textarea {
+        border-radius: 0.75rem;
+        border: 1px solid var(--white-85);
+        padding: 0.5rem 1rem;
+        background-color: var(--white-100);
+        font-family: var(--azeret);
+        font-weight: 200;
+        color: var(--black-10);
+    }
+
+    textarea {
+        field-sizing: content;
+        min-height: 10rem;
+        height: auto;
+        max-width: calc(100svw - 4rem);
+    }
+
+    input::placeholder, textarea::placeholder {
+        color: var(--gray);
+    }
+
+    form > div > div {
+        gap: 1rem;
+    }
+
+    div:has(button) {
+        width: 100%;
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    button {
+        padding: 1rem 1.5rem;
+        border-radius: 0.875rem;
+        border: 1px solid var(--white-85);
+        width: 100%;
+        cursor: pointer;
+        transform-origin: center;
+        transition: all ease-in-out 0.25s;
+    }
+
+    button[type="submit"] {
+        background-color: var(--primary-400);
+        color: var(--white-95);
+    }
+
+    button[type="reset"] {
+        color: var(--primary-200);
+        border-color: var(--primary-200);
+    }
+
+    button:hover {
+        background-color: var(--primary-200);
+        color: var(--white-95);
+    }
+
+    button:active {
+        opacity: 0.8;
+        transform: scale(0.95);
+    }
+
+
 </style>
