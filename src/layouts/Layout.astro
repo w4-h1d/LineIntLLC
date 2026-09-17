@@ -1,6 +1,7 @@
 ---
 import PageHeader from "../components/PageHeader.astro";
 import PageFooter from "../components/PageFooter.astro";
+import { Font } from "astro:assets";
 ---
 
 <!doctype html>
@@ -13,15 +14,14 @@ import PageFooter from "../components/PageFooter.astro";
 		<meta name="generator" content={Astro.generator} />
 		<title>{Astro.props.title}</title>
 
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:ital,opsz@0,14..32;1,14..32&display=swap" rel="stylesheet">
+		 <Font cssVariable="--font-dm-serif" preload />
+		 <Font cssVariable="--font-inter"/>
 		
 	</head>
 	<body>
 		<PageHeader page={Astro.props.page}/>
 		<slot />
-		<!-- <PageFooter page={Astro.props.page}/> -->
+		<PageFooter page={Astro.props.page}/>
 
 		<style is:global>
 						:root {
@@ -39,8 +39,8 @@ import PageFooter from "../components/PageFooter.astro";
 
 				--max-width: 90rem;
 
-				--dm-serif: "DM Serif Display", serif;
-				--inter: "Inter", sans-serif;
+				--dm-serif: var(--font-dm-serif), serif;
+				--inter: var(--font-inter), sans-serif;
 				
 				--border-width: 0.125rem;
 

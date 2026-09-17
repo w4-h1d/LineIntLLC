@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
@@ -8,4 +8,17 @@ export default defineConfig({
         port: 4321,
     },
     site: 'https://najmul.one',
+
+    fonts: [
+        {
+            provider: fontProviders.fontsource(),
+            name: "Inter",
+            cssVariable: "--font-inter",
+        },
+        {
+            provider: fontProviders.fontsource(),
+            name: "DM Serif Display",
+            cssVariable: "--font-dm-serif",
+        },
+    ]
 });
