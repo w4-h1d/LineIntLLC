@@ -7,22 +7,22 @@ const { heading } = Astro.props;
     <h2>{ heading }</h2>
     <form action="" id="contact-form">
         <div>
-            <label for="full_name">Name</label>
-            <input type="text" name="full_name" id="full_name" placeholder="Full Name">
+            <label for="full_name">Name <span class="required">*</span></label>
+            <input type="text" name="full_name" id="full_name" placeholder="Full Name" required>
         </div>
 
         <div>
-            <label for="phone">Phone</label>
+            <label for="phone">Phone <span class="required">*</span></label>
             <div class="flex-row">
                 <CountryCode />
-                <input type="tel" name="phone_number" id="phone_number" placeholder="9000 1000">
+                <input type="tel" name="phone_number" id="phone_number" placeholder="9000 1000" required>
             </div>
             <input type="hidden" name="phone" id="phone" >
         </div>
 
         <div>
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" placeholder="johndoe@customer.com">
+            <label for="email">Email <span class="required">*</span></label>
+            <input type="email" name="email" id="email" placeholder="johndoe@customer.com" required>
         </div>
 
         <div>
@@ -31,8 +31,8 @@ const { heading } = Astro.props;
         </div>
 
         <div>
-            <label for="description">Description</label>
-            <textarea name="description" id="description" placeholder="Your dream project"></textarea>
+            <label for="description">Description <span class="required">*</span></label>
+            <textarea name="description" id="description" placeholder="Your dream project" required></textarea>
         </div>
 
         <div class="flex-row">
@@ -142,6 +142,10 @@ const { heading } = Astro.props;
     button:active {
         opacity: 0.8;
         transform: scale(0.95);
+    }
+
+    .required {
+        color: var(--red-40);
     }
 
 
