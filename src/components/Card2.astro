@@ -3,7 +3,7 @@ const {title, description, icon, classList } = Astro.props;
 ---
 
 <article class={ classList }>
-    <img src={ icon} alt={"Icon for " + title } width="64" height="64">
+    <img src={ icon} alt={"Icon for " + title } width="64" height="64" loading="lazy">
     <h4>{ title }</h4>
     <p>{ description }</p>
 </article>

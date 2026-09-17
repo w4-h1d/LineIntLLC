@@ -3,7 +3,7 @@ const {service, description, img, alt} = Astro.props;
 ---
 
 <div>
-    <img src={img} alt={alt} width="400" height="267">
+    <img src={img} alt={alt} width="400" height="267" loading="lazy">
     <article>
         <h3>{service}</h3>
         <p>{description}</p>
