@@ -14,11 +14,20 @@ export default defineConfig({
             provider: fontProviders.fontsource(),
             name: "Inter",
             cssVariable: "--font-inter",
+            weights: ["100 900"],
+            fallbacks: ["sans-serif"]
         },
         {
             provider: fontProviders.fontsource(),
             name: "DM Serif Display",
             cssVariable: "--font-dm-serif",
+            fallbacks: ["serif"]
+        },
+        {
+            provider: fontProviders.fontsource(),
+            name: "Azeret Mono",
+            cssVariable: "--font-azeret-mono",
+            fallbacks: ["monospace"]
         },
     ]
 });
