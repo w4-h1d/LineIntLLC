@@ -16,6 +16,7 @@ import { Font } from "astro:assets";
 
 		 <Font cssVariable="--font-dm-serif" preload />
 		 <Font cssVariable="--font-inter"/>
+		 <Font cssVariable="--font-azeret-mono"/>
 		
 	</head>
 	<body>
@@ -30,10 +31,15 @@ import { Font } from "astro:assets";
 				--primary-300: #0C3940;
 				--primary-200: #143642;
 				--primary-100: #041315;
+				
 
+				--black-10: hsl(0 0 10%);
+				--gray: hsl(0 0 50%);
+				--white-85: hsl(0 0 85%);
 				--white-90: hsl(0 0 90%);
 				--white-95: hsl(0 0 95%);
-				--black-10: hsl(0 0 10%);
+				--white-100: #fff;
+
 				
 				
 
@@ -41,6 +47,7 @@ import { Font } from "astro:assets";
 
 				--dm-serif: var(--font-dm-serif), serif;
 				--inter: var(--font-inter), sans-serif;
+				--azeret: var(--font-azeret-mono), monospace;
 				
 				--border-width: 0.125rem;
 
