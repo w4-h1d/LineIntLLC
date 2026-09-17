@@ -21,7 +21,7 @@ import PageFooter from "../components/PageFooter.astro";
 	<body>
 		<PageHeader page={Astro.props.page}/>
 		<slot />
-		<PageFooter page={Astro.props.page}/>
+		<!-- <PageFooter page={Astro.props.page}/> -->
 
 		<style is:global>
 						:root {
@@ -57,10 +57,16 @@ import PageFooter from "../components/PageFooter.astro";
 
 			html {
 				scroll-behavior: smooth;
+				scrollbar-gutter: stable;
 			}
 
 			body {
 				background-color: var(--white-95);
+
+				min-block-size: 100svh;
+				display: grid;
+				grid-template-rows: auto 1fr auto;
+				
 			}
 
 			.flex-row {
@@ -74,7 +80,15 @@ import PageFooter from "../components/PageFooter.astro";
 			}
 
 			h1, h2, h3 {
-				font-family: var(--dm-serif)
+				font-family: var(--dm-serif);
+			}
+
+			h1, h2, h3, h4 {
+				font-weight: 400;
+			}
+
+			h2 {
+				font-size: 3rem;
 			}
 
 			a {
@@ -95,6 +109,10 @@ import PageFooter from "../components/PageFooter.astro";
 
 			html {
 				background-color: var(--primary-100);
+			}
+
+			.hidden {
+				display: none;
 			}
 
 			@media (prefers-reduced-motion: reduce) {
