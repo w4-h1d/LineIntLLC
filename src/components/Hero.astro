@@ -63,7 +63,7 @@ import heroBG from '../assets/hero-desktop.jpg';
 
     p {
         font-size: 1.25rem;
-        font-size: clamp(0.75rem, 1.25vw, 1.25rem);
+        font-size: clamp(0.95rem, 1.25vw, 1.25rem);
         line-height: 1.5;
         margin-top: 2rem;
         margin-top: clamp(1rem, max(3vh, 3vw), 2rem);
@@ -114,12 +114,13 @@ import heroBG from '../assets/hero-desktop.jpg';
     }
 
     a:hover {
-        opacity: 0.9;
+        background-color: var(--primary-200);
         text-decoration: none;
+        opacity: 1;
     }
 
     a:active {
-        opacity: 0.75;
+        opacity: 0.8;
         transform: scale(0.95);
     }
     
