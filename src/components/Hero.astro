@@ -21,7 +21,7 @@ import heroBG from '../assets/hero-desktop.jpg';
     </section>
 
     <section class="partners">
-        <h2>Our trusted partners</h2>
+        <h3>Our trusted partners</h3>
         <div class="flex-row brand-carousel">
             <img src="/logos/golden-footprint.webp" alt="" width="150" height="150">
             <img src="/logos/asian-paints.webp" alt="" width="150" height="150">
@@ -132,7 +132,7 @@ import heroBG from '../assets/hero-desktop.jpg';
         top: 0;
         left: 0;
         overflow: hidden;
-        background-image: url("/images/hero-desktop.jpg");
+        background-image: url("/images/hero-desktop.webp");
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -170,12 +170,13 @@ import heroBG from '../assets/hero-desktop.jpg';
         )
     }
 
-    h2 {
+    h3 {
         font-family: var(--inter);
         color: var(--primary-200);
         text-align: center;
         font-size: 1.5rem;
-        font-size: clamp(0.75rem, 3vh, 1.5rem)
+        font-size: clamp(0.75rem, 3vh, 1.5rem);
+        font-weight: 600;
     }
 
     .partners {
