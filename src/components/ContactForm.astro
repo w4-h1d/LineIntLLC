@@ -5,35 +5,38 @@ const { heading } = Astro.props;
 
 <section>
     <h2>{ heading }</h2>
-    <form action="" id="contact-form">
+    <form action="https://api.staticforms.dev/submit" method="POST" id="contact-form">
+        <input type="hidden" name="apiKey" value="sf_9b49816fa0c31f2d394ed0c5">
         <div>
             <label for="full_name">Name <span class="required">*</span></label>
-            <input type="text" name="full_name" id="full_name" placeholder="Full Name" required>
+            <input type="text" name="Full Name" id="full-name" placeholder="Full Name" required>
         </div>
 
         <div>
             <label for="phone">Phone <span class="required">*</span></label>
             <div class="flex-row">
                 <CountryCode />
-                <input type="tel" name="phone_number" id="phone_number" placeholder="9000 1000" required>
+                <input type="tel" id="phone-number" placeholder="9000 1000" required>
             </div>
-            <input type="hidden" name="phone" id="phone" >
+            <input type="hidden" name="Phone" id="phone" >
         </div>
 
         <div>
             <label for="email">Email <span class="required">*</span></label>
-            <input type="email" name="email" id="email" placeholder="johndoe@customer.com" required>
+            <input type="email" name="Email" id="email" placeholder="johndoe@customer.com" required>
         </div>
 
         <div>
             <label for="location">Location</label>
-            <input type="text" name="location" id="location" placeholder="Project Address">
+            <input type="text" name="Location" id="location" placeholder="Project Address">
         </div>
 
         <div>
             <label for="description">Description <span class="required">*</span></label>
-            <textarea name="description" id="description" placeholder="Your dream project" required></textarea>
+            <textarea name="Description" id="description" placeholder="Your dream project" required></textarea>
         </div>
+
+        <input type="hidden" name="redirectTo" value="https://najmul.one/thank-you">
 
         <div class="flex-row">
             <button type="submit" id="submit-btn">Send Message</button>
@@ -44,18 +47,17 @@ const { heading } = Astro.props;
 </section>
 
 <script>
-/*     const form = document.getElementById("contact-form");
+    const form = document.getElementById("contact-form") as HTMLFormElement | null;
+    const countryCode = document.getElementById("country-code") as HTMLInputElement | null;
+    const phoneNumber = document.getElementById("phone-number") as HTMLInputElement | null;
+    const phone = document.getElementById("phone") as HTMLInputElement | null;
 
-    const submitBtn = document.getElementById("submit-btn");
+    form?.addEventListener("submit", e => {
+        if (countryCode && phoneNumber && phone) {
+            phone.value = countryCode.value + phoneNumber.value;
+        } 
+    })
 
-
-
-    submitBtn?.addEventListener("click", e => {
-        e.preventDefault();
-        const fullNum = country_code.value + phone_number.value;
-        phone.setAttribute("value", fullNum);
-        form?.submit();
-    }); */
 </script>
 
 <style>
