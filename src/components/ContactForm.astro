@@ -3,47 +3,55 @@ import CountryCode from '../components/CountryCode.astro';
 const { heading } = Astro.props;
 ---
 
-<section>
-    <h2>{ heading }</h2>
-    <form action="https://api.staticforms.dev/submit" method="POST" id="contact-form">
-        <input type="hidden" name="apiKey" value="sf_9b49816fa0c31f2d394ed0c5">
-        <div>
-            <label for="full_name">Name <span class="required">*</span></label>
-            <input type="text" name="Full Name" id="full-name" placeholder="Full Name" required>
-        </div>
+<section class="container">
+    <section>
+        <h2>{ heading }</h2>
+        <div class="form-cont">
+            <form action="https://api.staticforms.dev/submit" method="POST" id="contact-form">
+                <input type="hidden" name="apiKey" value="sf_9b49816fa0c31f2d394ed0c5">
+                <div>
+                    <label for="full_name">Name <span class="required">*</span></label>
+                    <input type="text" name="Full Name" id="full-name" placeholder="Full Name" required>
+                </div>
 
-        <div>
-            <label for="phone">Phone <span class="required">*</span></label>
-            <div class="flex-row">
-                <CountryCode />
-                <input type="tel" id="phone-number" placeholder="9000 1000" required>
+                <div>
+                    <label for="phone">Phone <span class="required">*</span></label>
+                    <div class="flex-row">
+                        <CountryCode />
+                        <input type="tel" id="phone-number" placeholder="9000 1000" required>
+                    </div>
+                    <input type="hidden" name="Phone" id="phone" >
+                </div>
+
+                <div>
+                    <label for="email">Email <span class="required">*</span></label>
+                    <input type="email" name="Email" id="email" placeholder="johndoe@customer.com" required>
+                </div>
+
+                <div>
+                    <label for="location">Location</label>
+                    <input type="text" name="Location" id="location" placeholder="Project Address">
+                </div>
+
+                <div>
+                    <label for="description">Description <span class="required">*</span></label>
+                    <textarea name="Description" id="description" placeholder="Your dream project" required></textarea>
+                </div>
+
+                <input type="hidden" name="redirectTo" value="https://najmul.one/thank-you">
+
+                <div class="flex-row">
+                    <button type="submit" id="submit-btn">Send Message</button>
+                    <button type="reset">Clear</button>
+                </div>
+            </form>
+
+            <div class="stack">
+                <img src="/images/building-form-section.webp" alt="" class="form-img stacked-item">
+                <img src="/images/form-bg.svg" alt="" class="bg-shape stacked-item">
             </div>
-            <input type="hidden" name="Phone" id="phone" >
         </div>
-
-        <div>
-            <label for="email">Email <span class="required">*</span></label>
-            <input type="email" name="Email" id="email" placeholder="johndoe@customer.com" required>
-        </div>
-
-        <div>
-            <label for="location">Location</label>
-            <input type="text" name="Location" id="location" placeholder="Project Address">
-        </div>
-
-        <div>
-            <label for="description">Description <span class="required">*</span></label>
-            <textarea name="Description" id="description" placeholder="Your dream project" required></textarea>
-        </div>
-
-        <input type="hidden" name="redirectTo" value="https://najmul.one/thank-you">
-
-        <div class="flex-row">
-            <button type="submit" id="submit-btn">Send Message</button>
-            <button type="reset">Clear</button>
-        </div>
-
-    </form>
+    </section>
 </section>
 
 <script>
@@ -61,6 +69,42 @@ const { heading } = Astro.props;
 </script>
 
 <style>
+    .container {
+        padding-inline: 2rem;
+        border-top: var(--border-dark);
+
+        
+
+    }
+
+    .container > section {
+        max-width: var(--max-width);
+        width: 100%;
+        padding: 2rem;
+        border-inline: var(--border-dark);
+        margin: 0 auto;
+    }
+
+    .form-cont {
+        display: flex;
+        gap: 5.25rem;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        margin-bottom: 5rem;
+    }
+
+    .form-img {
+        border-radius: 1rem;
+        z-index: 1;
+    }
+
+    .bg-shape {
+        z-index: 0;
+        position: absolute;
+        top: -5rem;
+        right: -4rem;
+    }
+
     form {
         padding: 2rem;
         font-size: 1.5rem;
@@ -68,6 +112,22 @@ const { heading } = Astro.props;
         border-radius: 1.25rem;
         border: 1px solid var(--white-85);
         box-shadow: 0 0.125rem 0.5rem 0.125rem hsla(0, 0%, 0%, 0.15);
+        width: 100%;
+        max-width: 37.3125rem;
+    }
+
+
+    div:has(.bg-shape) {
+        position: relative;
+        height: 100%;
+    }
+
+
+
+    h2 {
+        color: var(--primary-200);
+        margin-left: 3rem;
+        margin-bottom: 2rem;
     }
 
     button, input, textarea {
@@ -134,6 +194,7 @@ const { heading } = Astro.props;
     button[type="reset"] {
         color: var(--primary-200);
         border-color: var(--primary-200);
+        background-color: var(--white-95);
     }
 
     button:hover {
