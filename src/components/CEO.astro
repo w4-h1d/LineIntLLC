@@ -1,13 +1,13 @@
-<section>
-    <div>
-        <img src="/images/ceo.jpg" alt="Jakir Hossain, Chairman & CEO">
+<section class="container">
+    <div class="wrapper flex-row">
+        <img src="/images/ceo.jpg" alt="Jakir Hossain, Chairman & CEO" width="400" height="500">
         <div>
-            <article>
+            <article class="message-cont">
                 <h3>Chairman's Message</h3>
                 <p>We are committed to providing quality products, dependable services, and lasting value to every customer. We believe that strong relationships, integrity, and continuous improvement are the foundation of our success. We thank our clients and partners for their trust and look forward to building a strong future together.</p>
             </article>
 
-            <section>
+            <section class="title-cont">
                 <h2>Jakir Hossain</h2>
                 <p>Chairman & CEO, Line International Project L.L.C.</p>
             </section>
@@ -20,4 +20,51 @@
         max-width: 100%;
         height: auto;
     }
+
+    .container {
+        padding-inline: 2rem;
+    }
+
+    .wrapper {
+        max-width: var(--max-width);
+        border-inline: var(--border-dark);
+        padding: 6rem 2rem;
+        margin: 0 auto;
+        gap: 4rem;
+        justify-content: space-evenly;
+    }
+
+    .wrapper > div {
+        width: 43.5rem;
+    }
+
+    h2, h3 {
+        color: var(--primary-200);
+    }
+
+    .title-cont {
+        margin-top: 8rem;
+    }
+
+    .title-cont > p {
+        font-weight: 600;
+        color: var(--primary-200);
+    }
+
+    h3 {
+        font-size: 2rem;
+    }
+
+    .message-cont > p {
+        color: var(--black-10);
+        line-height: 1.5;
+        font-size: 1.25rem;
+        margin-top: 1rem;
+    }
+
+    img {
+        border-radius: 1rem;
+        box-shadow: var(--box-shadow);
+    }
+
 </style>

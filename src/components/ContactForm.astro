@@ -96,6 +96,7 @@ const { heading } = Astro.props;
     .form-img {
         border-radius: 1rem;
         z-index: 1;
+        box-shadow: var(--box-shadow);
     }
 
     .bg-shape {
@@ -111,7 +112,7 @@ const { heading } = Astro.props;
         background-color: var(--white-100);
         border-radius: 1.25rem;
         border: 1px solid var(--white-85);
-        box-shadow: 0 0.125rem 0.5rem 0.125rem hsla(0, 0%, 0%, 0.15);
+        box-shadow: var(--box-shadow);
         width: 100%;
         max-width: 37.3125rem;
     }
@@ -126,8 +127,7 @@ const { heading } = Astro.props;
 
     h2 {
         color: var(--primary-200);
-        margin-left: 3rem;
-        margin-bottom: 2rem;
+        margin: 5rem 0 2rem 3rem;
     }
 
     button, input, textarea {
