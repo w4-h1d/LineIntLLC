@@ -124,6 +124,14 @@ import { Font } from "astro:assets";
 				display: none;
 			}
 
+			.stack {
+				display: grid;
+			}
+
+			.stacked-item {
+				grid-area: 1 / 1;
+			}
+
 			@media (prefers-reduced-motion: reduce) {
 				html {
 					scroll-behavior: auto;
