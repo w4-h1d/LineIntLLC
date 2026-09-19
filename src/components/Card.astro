@@ -1,8 +1,8 @@
 ---
-const {service, description, img, alt} = Astro.props;
+const {service, description, img, alt, id} = Astro.props;
 ---
 
-<div>
+<div id={ id }>
     <img src={img} alt={alt} width="400" height="267" loading="lazy">
     <article>
         <h3>{service}</h3>
