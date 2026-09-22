@@ -25,13 +25,12 @@ import { Font } from "astro:assets";
 		<PageFooter page={Astro.props.page}/>
 
 		<style is:global>
-						:root {
+			:root {
 				--primary-900: #ECFBFE;
 				--primary-400: #15616D;
 				--primary-300: #0C3940;
 				--primary-200: #143642;
 				--primary-100: #041315;
-				
 
 				--black-10: hsl(0 0 10%);
 				--gray: hsl(0 0 50%);
@@ -43,6 +42,14 @@ import { Font } from "astro:assets";
 				--red-40: hsl(0, 100%, 40%);
 
 				--box-shadow: 0 0.125rem 0.5rem 0.125rem hsla(0, 0%, 0%, 0.15);
+
+				--font-104: clamp(2.5rem, 6.5vw, 6.5rem);
+				--font-64: clamp(2rem, 4vw, 4rem);
+				--font-32: clamp(1.5rem, 2vw, 2rem);
+				--font-24: clamp(1rem, 1.5vw, 1.5rem);
+				--font-20: clamp(0.95rem, 1.25vw, 1.25rem);
+				--font-16: clamp(0.85rem, 1vw, 1rem);
+				--font-14: clamp(0.75rem, 0.875vw, 0.875rem);
 				
 
 				--max-width: 90rem;
