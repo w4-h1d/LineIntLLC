@@ -1,4 +1,4 @@
-<section class="container">
+<section class="container" id="chairman">
     <div class="wrapper flex-row">
         <img src="/images/ceo.jpg" alt="Jakir Hossain, Chairman & CEO" width="400" height="500">
         <div>
@@ -9,7 +9,7 @@
 
             <section class="title-cont">
                 <h2>Jakir Hossain</h2>
-                <p>Chairman & CEO, Line International Project L.L.C.</p>
+                <p>Chairman&nbsp;&&nbsp;CEO, Line&nbsp;International Project&nbsp;L.L.C.</p>
             </section>
         </div>
     </div>
@@ -25,6 +25,8 @@
 
     .container {
         padding-inline: 2rem;
+        container: ceo / inline-size;
+
     }
 
     .wrapper {
@@ -32,21 +34,25 @@
         border-inline: var(--border-dark);
         padding: 6rem 2rem;
         margin: 0 auto;
-        gap: 4rem;
+        gap: clamp(1rem, 4vw, 4rem);
         justify-content: space-evenly;
     }
 
     .wrapper > div {
         width: 43.5rem;
+        max-width: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: clamp(2rem, 6cqi, 8rem);
     }
 
     h2, h3 {
         color: var(--primary-200);
     }
 
-    .title-cont {
-        margin-top: 8rem;
-    }
+    /* .title-cont {
+        margin-top: clamp(2rem, 6cqi, 8rem);
+    } */
 
     .title-cont > p {
         font-weight: 600;
@@ -61,6 +67,19 @@
         color: var(--black-10);
         line-height: 1.5;
         font-size: 1.25rem;
-        margin-top: 1rem;
+        margin-top: clamp(0.25rem, 0.5cqi, 0.75rem);
+    }
+
+    @container ceo (width < 57rem) {
+        .wrapper {
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            
+        }
+
+        .wrapper > div {
+            flex-flow: column-reverse nowrap;
+        }
+
     }
 </style>
