@@ -57,7 +57,7 @@
         font-family: var(--inter);
         font-weight: 500;
         font-optical-sizing: auto;
-        font-size: 1.75rem;
+        font-size: var(--font-28);
     }
 
     img {
@@ -82,7 +82,7 @@
     }
 
     li > a {
-        font-size: 1.25rem;
+        font-size: var(--font-20);
         padding: 0.5rem
     }
 
@@ -116,13 +116,13 @@
 
 
     @media all and (max-width: 70rem) {
-        h2 {
+        /* h2 {
             font-size: 1.5rem;
         }
 
         li > a {
             font-size: 1rem;
-        }
+        } */
 
         img {
             width: 3rem;
@@ -135,7 +135,7 @@
         }
     }
 
-    @media all and (max-width: 62rem) {
+    @media all and (max-width: 55rem) {
 
         header {
             transition: background-color 0.5s;
@@ -150,6 +150,7 @@
             top: 0;
             left: 0;
             width: 100%;
+            padding-top: 1rem;
             padding-inline: 2rem;
             transform: translateY(-18rem);
             border-bottom: var(--border-dark);
@@ -183,9 +184,9 @@
             padding-left: 2rem;
         }
 
-        h2 {
+/*         h2 {
             font-size: 1.25rem;
-        }
+        } */
 
         button {
             display: block;
@@ -196,7 +197,7 @@
         }
 
         .open {
-            transform: translateY(5.5rem);
+            transform: translateY(4.5rem);
         }
 
         span, span::after, span::before {
@@ -238,7 +239,7 @@
 
     @media all and (max-width: 26rem) {
         h2 {
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
 
         button {
