@@ -47,8 +47,8 @@ const { heading } = Astro.props;
             </form>
 
             <div class="stack">
-                <img src="/images/building-form-section.webp" alt="" class="form-img stacked-item">
                 <img src="/images/form-bg.svg" alt="" class="bg-shape stacked-item">
+                <img src="/images/building-form-section.webp" alt="" class="form-img stacked-item">
             </div>
         </div>
     </section>
@@ -72,14 +72,11 @@ const { heading } = Astro.props;
     .container {
         padding-inline: 2rem;
         border-top: var(--border-dark);
-
-        
-
     }
 
     .container > section {
-        max-width: var(--max-width);
         width: 100%;
+        max-width: var(--max-width);
         padding: 2rem;
         border-inline: var(--border-dark);
         margin: 0 auto;
@@ -95,6 +92,7 @@ const { heading } = Astro.props;
 
     .form-img {
         border-radius: 1rem;
+        border-radius: var(--border-radius);
         z-index: 1;
         box-shadow: var(--box-shadow);
     }
@@ -107,14 +105,16 @@ const { heading } = Astro.props;
     }
 
     form {
-        padding: 2rem;
-        font-size: var(--font-24);
+        padding: 1.25rem;
+        font-size: var(--font-16);
         background-color: var(--white-100);
-        border-radius: 1.25rem;
+        border-radius: 1rem;
+        border-radius: calc(var(--border-radius) + 0.25rem);
         border: 1px solid var(--white-85);
         box-shadow: var(--box-shadow);
+        /* max-width: 37.3125rem; */
         width: 100%;
-        max-width: 37.3125rem;
+        
     }
 
 
@@ -127,7 +127,7 @@ const { heading } = Astro.props;
 
     h2 {
         color: var(--primary-200);
-        margin: 5rem 0 2rem 3rem;
+        /* margin: 5rem 0 2rem 3rem; */
     }
 
     button, input, textarea {
@@ -136,7 +136,7 @@ const { heading } = Astro.props;
 
     label {
         color: var(--primary-200);
-        margin: 1.5rem 0 1rem;
+        margin: 1.25rem 0 0.75rem;
         font-weight: 500;
     }
 
@@ -147,6 +147,7 @@ const { heading } = Astro.props;
 
     input, textarea {
         border-radius: 0.75rem;
+        border-radius: calc(var(--border-radius) - 0.25rem);
         border: 1px solid var(--white-85);
         padding: 0.5rem 1rem;
         background-color: var(--white-100);
@@ -157,7 +158,8 @@ const { heading } = Astro.props;
 
     textarea {
         field-sizing: content;
-        min-height: 10rem;
+        min-height: 10rem; 
+        min-height: 6lh; 
         height: auto;
         max-width: calc(100svw - 4rem);
     }
@@ -174,16 +176,23 @@ const { heading } = Astro.props;
         width: 100%;
         gap: 1rem;
         margin-top: 1.5rem;
+        align-items: stretch;
     }
 
     button {
-        padding: 1rem 1.5rem;
+        padding: var(--font-16);
         border-radius: 0.875rem;
+        border-radius: calc(var(--border-radius) - 0.25rem);
         border: 1px solid var(--white-85);
         width: 100%;
         cursor: pointer;
         transform-origin: center;
         transition: all ease-in-out 0.25s;
+        display: inline-flex;
+        flex-grow: 1;
+
+        justify-content: center;
+        align-items: center;
     }
 
     button[type="submit"] {
@@ -210,6 +219,7 @@ const { heading } = Astro.props;
     .required {
         color: var(--red-40);
     }
+
 
 
 </style>

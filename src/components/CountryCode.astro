@@ -160,7 +160,7 @@
   <option value="+850">🇰🇵 PRK&nbsp;&nbsp;+850</option>
   <option value="+1670">🇲🇵 MNP&nbsp;+1670</option>
   <option value="+47">🇳🇴 NOR&nbsp;&nbsp;&nbsp;+47</option>
-  <option value="+968" selected>🇴🇲 OMN&nbsp;&nbsp;+968</option>
+  <option value="+968" selected>🇴🇲 OMN&nbsp;&nbsp;+0968</option>
   <option value="+92">🇵🇰 PAK&nbsp;&nbsp;&nbsp;+92</option>
   <option value="+680">🇵🇼 PLW&nbsp;&nbsp;+680</option>
   <option value="+970">🇵🇸 PSE&nbsp;&nbsp;+970</option>
@@ -247,17 +247,19 @@
 
 <style>
   select {
-    font-size: 1.5rem;
+    font-size: var(--font-16);
     
     text-align: left;
 
     direction: rtl;
-    width: 8.2rem;
+    width: clamp(5.5rem, 10ch, 6.25rem);
     color: var(--black-10);
     background-color: var(--white-100);
 
-    padding: 0.5rem 2rem 0.5rem 1rem;
+    padding: 0.5rem 2rem 0.5rem 0.5rem;
     border-radius: 0.75rem;
+    border-radius: calc(var(--border-radius) - 0.25rem);
+
     border: 1px solid var(--white-85);
     white-space: pre;
     font-family: var(--azeret);
@@ -265,13 +267,20 @@
     appearance: none;
     background-image: url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 9L12 15L18 9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"/></svg>');
     background-repeat: no-repeat;
-    background-position: right 0.625rem center;
+    background-position: right 0.5rem center;
     background-size: 1.25rem;
     cursor: pointer;
   }
 
   option {
     white-space: pre;
+  }
+
+  @media all and (max-width: 36rem) {
+    select {
+      direction: ltr;
+      width: 4rem;
+    }
   }
 
   
