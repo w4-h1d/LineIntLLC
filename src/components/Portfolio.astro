@@ -1,10 +1,102 @@
 ---
-
+import Slide from '../components/Slide.astro';
+import 'swiper/css/bundle';
 ---
 
+
+
+
 <section id="portfolio">
-    <h2>Our Project Portfolio</h2>
-    <div class="carousel">
-        
+    <div class="wrapper hidden">
+        <h2>Our Project Portfolio</h2>
+        <!-- <div class="swiper">
+                    <div class="carousel swiper-wrapper">
+            <Slide client="Ahmed Ali Mohammed Al Farsi" location="Mejaz Al Sugra, Saham" start="01/07/2024" end="01/05/2025" img="/images/project-1.png" project="Project 1"/>
+            <Slide client="Ahmed Ali Mohammed Al Farsi" location="Mejaz Al Sugra, Saham" start="01/07/2024" end="01/05/2025" img="/images/project-1.png" project="Project 1"/>
+            <Slide client="Ahmed Ali Mohammed Al Farsi" location="Mejaz Al Sugra, Saham" start="01/07/2024" end="01/05/2025" img="/images/project-1.png" project="Project 1"/>
+        </div>
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        </div>-->
+
+        <div class="carousel">
+            <Slide client="Ahmed Ali Mohammed Al Farsi" location="Mejaz Al Sugra, Saham" start="01/07/2024" end="01/05/2025" img="/images/project-1.png" project="Project 1"/>
+        </div>
     </div>
+
+
+
+    
 </section>
+
+
+<script>
+    import Swiper from 'swiper/bundle';
+
+    const swiper = new Swiper('.swiper', {
+    // Optional parameters
+
+    a11y: {
+        prevSlideMessage: 'Previous slide',
+        nextSlideMessage: 'Next slide',
+    },
+
+    direction: 'horizontal',
+    loop: true,
+
+    // If we need pagination
+    pagination: {
+        el: '.swiper-pagination',
+    },
+
+    // Navigation arrows
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+
+    // And if we need scrollbar
+    scrollbar: {
+        el: '.swiper-scrollbar',
+    },
+
+    autoplay: {
+        delay: 5000,
+    },
+
+    watchSlidesProgress: true,
+    });
+</script>
+
+<style>
+
+    h2 {
+        text-align: center;
+        color: var(--primary-200);
+    }
+    
+
+    section {
+        border-top: var(--border-dark);
+        padding-inline: 2rem;
+    }
+
+    .wrapper {
+        max-width: var(--max-width);
+        border-inline: var(--border-dark);
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .carousel {
+        width: 100%;
+        width: clamp(400px, 100%, 1200px);
+        height: clamp(16.25rem, 80vh, 40rem);
+        container: carousel / size;
+        margin: 0 auto;
+        border-radius: 1rem;
+        overflow: hidden;
+    }
+</style>
