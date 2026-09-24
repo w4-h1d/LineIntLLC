@@ -1,11 +1,77 @@
 ---
-
+const {client, location, start, end, img, project } = Astro.props;
 ---
 
 
-<div>    
+<div class="container swiper-slide">    
     <article>
-        <img src="/public/icons/person.svg" alt="">
-        <img src="/public/icons/location.svg">
+        <div>
+            <img src="/icons/person-slide-icon.svg" alt="Client Icon" width="24" height="24">
+            <p>{ client }</p>
+        </div>
+        <div>
+            <img src="/icons/location-slide-icon.svg" alt="Location of Project Icon"  width="24" height="24">
+            <p>{ location }</p>
+        </div>
+        <div>
+            <img src="/icons/duration-slide-icon.svg" alt="Project Duration Icon"  width="24" height="24">
+            <p>{ start } to { end }</p>
+        </div>
     </article>
+    <div class="bg-cont stack">
+        <img src={ img } alt={ "Image of " + project } class="stacked-item">
+        <div class="overlay stacked-item" >&nbsp;</div>
+    </div>
 </div>
+
+<style>
+    p {
+        color: var(--primary-200);
+        font-weight: 600;
+        font-size: var(--font-24);
+    }
+
+    .container {
+        position: relative;
+        width: 100%;
+        height: 100cqh;
+    }
+
+    article {
+        background-color: var(--white-90);
+        padding: 1rem;
+        border-radius: 1rem;
+
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 1rem;
+
+        position: absolute;
+        bottom: 2rem;
+        left: 2rem;
+    }
+
+    article > div {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 0.5rem;
+        align-items: center;
+
+    }
+
+    .bg-cont {
+        height: 100%;
+    }
+
+    .bg-cont > img {
+        width: 100%;
+        height: 100cqh;
+        object-fit: cover;
+    }
+
+    .overlay {
+        /* background-color: rgba(255, 0, 0, 0.151); */
+        width: 100%;
+        height: 100%;
+    }
+</style>
