@@ -47,8 +47,8 @@ const { heading } = Astro.props;
             </form>
 
             <div class="stack">
+                <img src="/images/building-form-section.webp" alt="" class="form-img stacked-item" width="425" height="636">
                 <img src="/images/form-bg.svg" alt="" class="bg-shape stacked-item">
-                <img src="/images/building-form-section.webp" alt="" class="form-img stacked-item">
             </div>
         </div>
     </section>
@@ -84,10 +84,11 @@ const { heading } = Astro.props;
 
     .form-cont {
         display: flex;
-        gap: 5.25rem;
-        align-items: flex-start;
-        justify-content: space-evenly;
+        gap: clamp(2rem, 5vw, 5.25rem);
+        align-items: center;
+        justify-content: center;
         margin-bottom: 5rem;
+        padding-right: 1rem;
     }
 
     .form-img {
@@ -95,13 +96,19 @@ const { heading } = Astro.props;
         border-radius: var(--border-radius);
         z-index: 1;
         box-shadow: var(--box-shadow);
+        width: 100%;
+        max-width: 26.5625rem;
+        height: 100%;
+        object-fit: cover;
     }
 
     .bg-shape {
         z-index: 0;
         position: absolute;
-        top: -5rem;
-        right: -4rem;
+        bottom: 4rem;
+        left: 2.5rem;
+        width: 100%;
+        height: 100%;
     }
 
     form {
@@ -112,22 +119,25 @@ const { heading } = Astro.props;
         border-radius: calc(var(--border-radius) + 0.25rem);
         border: 1px solid var(--white-85);
         box-shadow: var(--box-shadow);
-        /* max-width: 37.3125rem; */
+
         width: 100%;
-        
+        flex: 0 1.75 30rem;
     }
 
 
-    div:has(.bg-shape) {
+    div:has(img) {
         position: relative;
         height: 100%;
+        width: 100%;
+        flex: 0 1 30rem;
     }
 
 
 
     h2 {
         color: var(--primary-200);
-        /* margin: 5rem 0 2rem 3rem; */
+        margin: 2rem 0 6rem 0;
+        margin-left: clamp(0.01rem, 1.25vw * 6, 9rem);
     }
 
     button, input, textarea {
@@ -220,6 +230,24 @@ const { heading } = Astro.props;
         color: var(--red-40);
     }
 
+    form > div:first-child  {
+        background-color: red;
+        margin: 0;
+    }
 
+    @media all and (max-width: 48rem) {
+        h2 {
+            margin-left: 0;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
 
+        .form-cont {
+            padding: 0;
+        }
+
+        div:has(img) {
+            display: none;
+        }
+    }
 </style>
