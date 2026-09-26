@@ -32,6 +32,9 @@ import { Font } from "astro:assets";
 				--primary-200: #143642;
 				--primary-100: #041315;
 
+				--accent-400: #D13F28;
+				--accent-900: #FBE0DB;
+
 				--black-10: hsl(0 0 10%);
 				--gray: hsl(0 0 50%);
 				--white-85: hsl(0 0 85%);
@@ -77,11 +80,11 @@ import { Font } from "astro:assets";
 			html {
 				scroll-behavior: smooth;
 				scrollbar-gutter: stable;
+				background-color: var(--white-95);
 			}
 
 			body {
 				background-color: var(--white-95);
-
 				min-block-size: 100svh;
 				display: grid;
 				grid-template-rows: auto 1fr auto;
@@ -126,9 +129,6 @@ import { Font } from "astro:assets";
 				text-decoration: none;
 			}
 
-			html {
-				background-color: var(--primary-100);
-			}
 
 			.hidden {
 				display: none;
