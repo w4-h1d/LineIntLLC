@@ -6,7 +6,7 @@ import Card2 from '../components/Card2.astro';
 <section class="container" id="services">
     <section class="services-cont">
         <h2>Services We Provide</h2>
-        <div class="services flex-row">
+        <div class="services">
             <Card service="Construction Services" img="/images/construction.webp" alt="Image of construction services." description="We provide robust construction services, combining expert craftsmanship, superior materials, precise execution, and rigorous standards to create durable, modern structures built to last a lifetime." id="construction-services"/>
 
             <Card service="Waterproofing Solutions" img="/images/waterproofing.webp" alt="Image of Waterproofing Solutions" description="We provide advanced waterproofing solutions designed to safeguard against moisture and water damage, delivering lasting protection, superior performance, and enhanced structural durability." id="waterproofing-solutions"/>
@@ -56,10 +56,10 @@ import Card2 from '../components/Card2.astro';
     }
 
     .services {
-        flex-wrap: wrap;
-        gap: 2rem;
+        display: flex;
+        flex-flow: row wrap;
         justify-content: center;
-        align-items: flex-start;
+        gap: var(--font-32);
     }
 
     h2 {
@@ -93,6 +93,13 @@ import Card2 from '../components/Card2.astro';
         margin: 4rem 0;
     }
 
+    @media all and (max-width: 64.25rem) {
+        .services {
+            grid-template-columns: 1fr;
+            padding: 0;
+        }
+    }
+
     @media all and (max-width: 55rem) {
         .reasons-cont {
             padding: 3rem 1.5rem;
@@ -103,5 +110,6 @@ import Card2 from '../components/Card2.astro';
             margin-top: 2rem
         }
     }
+
 
 </style>
