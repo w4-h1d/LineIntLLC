@@ -22,7 +22,8 @@
         </nav>
 
         <button aria-label="Menu Button" id="menuButton">
-            <span></span>
+            <span class="button-icon"></span>
+            <span class="button-bg"></span>
         </button>
 
         <script>
@@ -102,15 +103,41 @@
         transition: all ease-in-out 0.25s;
         transform-origin: center;
         background-color: transparent;
+
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
     }
 
     button:hover {
-        background-color: var(--primary-200);
+        /* background-color: var(--primary-200); */
+        border-color: transparent;
     }
 
     button:active {
         transform: scale(0.95);
         opacity: 0.8;
+    }
+
+    .button-bg {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        background-color: var(--primary-200);
+        width: 10%;
+        height: 100%;
+        border-radius: 2rem;
+        z-index: -1;
+        transform: translateX(-50%) translateY(100%);
+        transition: all 0.35s;
+    }
+
+    button:hover > .button-bg {
+        left: 0;
+        transform: translateX(0) translateY(0);
+        border-radius: 0.425rem;
+        width: 100%;
     }
 
 
@@ -200,7 +227,7 @@
             transform: translateY(4.5rem);
         }
 
-        span, span::after, span::before {
+        .button-icon, .button-icon::after, .button-icon::before {
             display: block;
             height: 2px;
             background-color: var(--primary-200);
@@ -208,31 +235,31 @@
             transition: all ease-in-out 0.5s;
         }
 
-        span::before, span::after {
+        .button-icon::before, .button-icon::after {
             content: "";
         }
 
-        span::before {
+        .button-icon::before {
             transform: translateY(-0.3755rem);
         }
 
-        span::after {
+        .button-icon::after {
             transform: translateY(0.25rem);
         }
 
-        button:hover span, button:hover span::after, button:hover span::before {
+        button:hover .button-icon, button:hover .button-icon::after, button:hover .button-icon::before {
             background-color: var(--white-90);
         }
 
-        button[opened] span::after {
+        button[opened] .button-icon::after {
             transform:  translateY(-0.125rem);
         }
 
-        button[opened] span {
+        button[opened] .button-icon {
             transform: rotate(135deg);
         }
 
-        button[opened] span::before {
+        button[opened] .button-icon::before {
             transform: translateY(0) rotate(90deg);
         }
     }
