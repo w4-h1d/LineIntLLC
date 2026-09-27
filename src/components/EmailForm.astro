@@ -1,0 +1,41 @@
+---
+import CountryCode from '../components/CountryCode.astro';
+---
+<form action="https://api.staticforms.dev/submit" method="POST" id="contact-form">
+    <input type="hidden" name="apiKey" value="sf_9b49816fa0c31f2d394ed0c5">
+    <div>
+        <label for="full_name">Name <span class="required">*</span></label>
+        <input type="text" name="Full Name" id="full-name" placeholder="Full Name" required>
+    </div>
+
+    <div>
+        <label for="phone">Phone <span class="required">*</span></label>
+        <div class="flex-row">
+            <CountryCode />
+            <input type="tel" id="phone-number" placeholder="9000 1000" required>
+        </div>
+        <input type="hidden" name="Phone" id="phone" >
+    </div>
+
+    <div>
+        <label for="email">Email <span class="required">*</span></label>
+        <input type="email" name="Email" id="email" placeholder="johndoe@customer.com" required>
+    </div>
+
+    <div>
+        <label for="location">Location</label>
+        <input type="text" name="Location" id="location" placeholder="Project Address">
+    </div>
+
+    <div>
+        <label for="description">Description <span class="required">*</span></label>
+        <textarea name="Description" id="description" placeholder="Your dream project" required></textarea>
+    </div>
+
+    <input type="hidden" name="redirectTo" value="https://najmul.one/thank-you">
+
+    <div class="flex-row">
+        <button type="submit" id="submit-btn">Send Message</button>
+        <button type="reset">Clear</button>
+    </div>
+</form>
