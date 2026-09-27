@@ -7,7 +7,7 @@ const { heading } = Astro.props;
     <section>
         <h2>{ heading }</h2>
         <div class="form-cont">
-            <form action="https://api.staticforms.dev/submit" method="POST" id="contact-form">
+            <form action="https://api.whatsapp.com/send" id="contact-form">
                 <input type="hidden" name="apiKey" value="sf_9b49816fa0c31f2d394ed0c5">
                 <div>
                     <label for="full_name">Name <span class="required">*</span></label>
@@ -59,6 +59,8 @@ const { heading } = Astro.props;
     const countryCode = document.getElementById("country-code") as HTMLInputElement | null;
     const phoneNumber = document.getElementById("phone-number") as HTMLInputElement | null;
     const phone = document.getElementById("phone") as HTMLInputElement | null;
+
+    const text = "";
 
     form?.addEventListener("submit", e => {
         if (countryCode && phoneNumber && phone) {
@@ -230,10 +232,6 @@ const { heading } = Astro.props;
         color: var(--red-40);
     }
 
-    form > div:first-child  {
-        background-color: red;
-        margin: 0;
-    }
 
     @media all and (max-width: 48rem) {
         h2 {
