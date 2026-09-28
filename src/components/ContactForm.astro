@@ -8,37 +8,37 @@ const { heading } = Astro.props;
         <h2>{ heading }</h2>
         <div class="form-cont">
             <form action="https://api.whatsapp.com/send" id="contact-form">
-                <input type="hidden" name="apiKey" value="sf_9b49816fa0c31f2d394ed0c5">
                 <div>
-                    <label for="full_name">Name <span class="required">*</span></label>
-                    <input type="text" name="Full Name" id="full-name" placeholder="Full Name" required>
+                    <label for="name">Name <span class="required">*</span></label>
+                    <input type="text" id="name" placeholder="Full Name" required>
                 </div>
 
                 <div>
-                    <label for="phone">Phone <span class="required">*</span></label>
+                    <label for="phone-number">Phone <span class="required">*</span></label>
                     <div class="flex-row">
                         <CountryCode />
                         <input type="tel" id="phone-number" placeholder="9000 1000" required>
                     </div>
-                    <input type="hidden" name="Phone" id="phone" >
                 </div>
 
                 <div>
                     <label for="email">Email <span class="required">*</span></label>
-                    <input type="email" name="Email" id="email" placeholder="johndoe@customer.com" required>
+                    <input type="email" id="email" placeholder="johndoe@customer.com" required>
                 </div>
 
                 <div>
                     <label for="location">Location</label>
-                    <input type="text" name="Location" id="location" placeholder="Project Address">
+                    <input type="text" id="location" placeholder="Project Address">
                 </div>
 
                 <div>
                     <label for="description">Description <span class="required">*</span></label>
-                    <textarea name="Description" id="description" placeholder="Your dream project" required></textarea>
+                    <textarea id="description" placeholder="Your dream project" required></textarea>
                 </div>
 
-                <input type="hidden" name="redirectTo" value="https://najmul.one/thank-you">
+
+                <input type="hidden" name="phone" value="96871607069">
+                <input type="hidden" name="text" value="" id="text">
 
                 <div class="flex-row">
                     <button type="submit" id="submit-btn">Send Message</button>
@@ -56,16 +56,31 @@ const { heading } = Astro.props;
 
 <script>
     const form = document.getElementById("contact-form") as HTMLFormElement | null;
-    const countryCode = document.getElementById("country-code") as HTMLInputElement | null;
-    const phoneNumber = document.getElementById("phone-number") as HTMLInputElement | null;
-    const phone = document.getElementById("phone") as HTMLInputElement | null;
 
-    const text = "";
+    const name = document.getElementById("name") as HTMLInputElement | null;
+
+    const countryCode = document.getElementById("country-code") as HTMLInputElement | null;
+
+    const phoneNumber = document.getElementById("phone-number") as HTMLInputElement | null;
+
+    const email = document.getElementById("email") as HTMLInputElement | null;
+
+    const location = document.getElementById("location") as HTMLInputElement | null;
+
+    const description = document.getElementById("description") as HTMLInputElement | null;
+
+    const text = document.getElementById("text") as HTMLInputElement | null;
 
     form?.addEventListener("submit", e => {
-        if (countryCode && phoneNumber && phone) {
-            phone.value = countryCode.value + phoneNumber.value;
-        } 
+        if (text) {
+            text.value = 
+`Name: *${name?.value}*
+Phone: ${countryCode?.value}${phoneNumber?.value.match(/\d+/g)?.join("")}
+Email: ${email?.value}
+Location: ${location?.value}
+
+${description?.value}`;
+        }
     })
 
 </script>
