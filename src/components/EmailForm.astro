@@ -39,3 +39,19 @@ import CountryCode from '../components/CountryCode.astro';
         <button type="reset">Clear</button>
     </div>
 </form>
+
+<script>
+    const form = document.getElementById("contact-form") as HTMLFormElement | null;
+    const countryCode = document.getElementById("country-code") as HTMLInputElement | null;
+    const phoneNumber = document.getElementById("phone-number") as HTMLInputElement | null;
+    const phone = document.getElementById("phone") as HTMLInputElement | null;
+
+    const text = "";
+
+    form?.addEventListener("submit", e => {
+        if (countryCode && phoneNumber && phone) {
+            phone.value = countryCode.value + phoneNumber.value;
+        } 
+    })
+
+</script>
