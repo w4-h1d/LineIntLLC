@@ -17,7 +17,7 @@ const {title, description, icon, classList } = Astro.props;
     }
 
     article:hover {
-        background-color: var(--accent-900);
+        background-color: oklch(from var(--accent-900) l calc(c - 0.015) h);
 
     }
 
