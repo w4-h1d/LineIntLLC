@@ -1,54 +1,65 @@
 ---
 const {client, location, start, end, img, project } = Astro.props;
+
+import PersonLogo from '../assets/icons/person-slide-icon.svg';
+import LocationLogo from '../assets/icons/location-slide-icon.svg';
+import DurationLogo from '../assets/icons/duration-slide-icon.svg';
 ---
 
 
-<div class="container swiper-slide">    
-    <article>
+<div class="container" >
+    <div class="bg-cont">
+        <img src={ img } alt={ "Image of " + project }>
+    </div>    
+    <article class="stacked-item">
         <div>
-            <img src="/icons/person-slide-icon.svg" alt="Client Icon" width="24" height="24">
+            <PersonLogo width={24} height={24} fill="currentColor" class="icon" />
             <p>{ client }</p>
         </div>
         <div>
-            <img src="/icons/location-slide-icon.svg" alt="Location of Project Icon"  width="24" height="24">
+            <LocationLogo width={24} height={24} fill="currentColor" class="icon" />
             <p>{ location }</p>
         </div>
         <div>
-            <img src="/icons/duration-slide-icon.svg" alt="Project Duration Icon"  width="24" height="24">
+            <DurationLogo width={24} height={24} fill="currentColor" class="icon" />
             <p>{ start } to { end }</p>
         </div>
     </article>
-    <div class="bg-cont stack">
-        <img src={ img } alt={ "Image of " + project } class="stacked-item">
-        <div class="overlay stacked-item" >&nbsp;</div>
-    </div>
+
 </div>
 
+
 <style>
+    .icon {
+        color: var(--primary-200);
+    }
+
     p {
         color: var(--primary-200);
         font-weight: 600;
-        font-size: var(--font-24);
+        font-size: var(--font-16);
     }
 
     .container {
         position: relative;
         width: 100%;
-        height: 100cqh;
+        background-color: var(--primary-200);
+        box-shadow: var(--box-shadow);
+        border-radius: var(--border-radius);
     }
 
     article {
-        background-color: var(--white-90);
+        background-color: var(--primary-900);
         padding: 1rem;
-        border-radius: 1rem;
+        border-radius: calc(var(--border-radius) - 0.25rem);
 
         display: flex;
         flex-flow: column nowrap;
-        gap: 1rem;
+        gap: clamp(0.75rem, 4vw, 1rem);
 
         position: absolute;
-        bottom: 2rem;
-        left: 2rem;
+        bottom: clamp(1rem, 2vw, 2rem);
+        left: clamp(1rem, 2vw, 2rem);
     }
 
     article > div {
@@ -59,19 +70,44 @@ const {client, location, start, end, img, project } = Astro.props;
 
     }
 
-    .bg-cont {
+    /* .bg-cont {
         height: 100%;
-    }
+    } */
 
-    .bg-cont > img {
+    .bg-cont img {
         width: 100%;
         height: 100cqh;
         object-fit: cover;
+        border-radius: var(--border-radius);
     }
 
-    .overlay {
-        /* background-color: rgba(255, 0, 0, 0.151); */
-        width: 100%;
-        height: 100%;
+    a:hover {
+        opacity: 1;
+    }
+
+    @media all and (max-width: 36rem) {
+        p {
+            font-size: var(--font-16);
+            color: var(--white-95);
+        }
+
+        .icon {
+            color: var(--white-95);
+        }
+
+        article {
+            position: static;
+            background-color: transparent;
+        }
+
+        .container {
+            border: 1px solid var(--white-85);
+            position: static;
+        }
+
+        .bg-cont  img {
+            box-shadow: var(--box-shadow);
+            height: auto;
+        }
     }
 </style>
