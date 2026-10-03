@@ -7,20 +7,20 @@ import DurationLogo from '../assets/icons/duration-slide-icon.svg';
 ---
 
 
-<div class="container" >
+<div class="container swiper-slide" >
     <div class="bg-cont">
-        <img src={ img } alt={ "Image of " + project }>
+        <img src={ img } alt={ "Image of " + project } loading="lazy">
     </div>    
-    <article class="stacked-item">
-        <div>
+    <article class="stacked-item" data-swiper-parallax="-150">
+        <div data-swiper-parallax="-100">
             <PersonLogo width={24} height={24} fill="currentColor" class="icon" />
             <p>{ client }</p>
         </div>
-        <div>
+        <div data-swiper-parallax="-200">
             <LocationLogo width={24} height={24} fill="currentColor" class="icon" />
             <p>{ location }</p>
         </div>
-        <div>
+        <div data-swiper-parallax="-300" data-swiper-parallax-duration="1000">
             <DurationLogo width={24} height={24} fill="currentColor" class="icon" />
             <p>{ start } to { end }</p>
         </div>
@@ -44,7 +44,7 @@ import DurationLogo from '../assets/icons/duration-slide-icon.svg';
         position: relative;
         width: 100%;
         background-color: var(--primary-200);
-        box-shadow: var(--box-shadow);
+        /* box-shadow: var(--box-shadow); */
         border-radius: var(--border-radius);
     }
 
@@ -70,9 +70,9 @@ import DurationLogo from '../assets/icons/duration-slide-icon.svg';
 
     }
 
-    /* .bg-cont {
+    .bg-cont {
         height: 100%;
-    } */
+    }
 
     .bg-cont img {
         width: 100%;
@@ -86,6 +86,11 @@ import DurationLogo from '../assets/icons/duration-slide-icon.svg';
     }
 
     @media all and (max-width: 36rem) {
+        .container {
+            border: 1px solid var(--white-85);
+            position: static;
+        }
+
         p {
             font-size: var(--font-16);
             color: var(--white-95);
@@ -100,14 +105,10 @@ import DurationLogo from '../assets/icons/duration-slide-icon.svg';
             background-color: transparent;
         }
 
-        .container {
-            border: 1px solid var(--white-85);
-            position: static;
-        }
-
         .bg-cont  img {
-            box-shadow: var(--box-shadow);
+            /* box-shadow: var(--box-shadow); */
             height: auto;
+            aspect-ratio: 4 / 3;
         }
     }
 </style>
