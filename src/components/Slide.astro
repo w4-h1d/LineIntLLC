@@ -1,26 +1,30 @@
 ---
 const {client, location, start, end, img, project } = Astro.props;
 
+import { Image } from 'astro:assets';
+
 import PersonLogo from '../assets/icons/person-slide-icon.svg';
 import LocationLogo from '../assets/icons/location-slide-icon.svg';
 import DurationLogo from '../assets/icons/duration-slide-icon.svg';
+
+
 ---
 
 
 <div class="container swiper-slide" >
     <div class="bg-cont">
-        <img src={ img } alt={ "Image of " + project } loading="lazy" width="1372" height="640">
+        <Image src={ img } alt={ "Image of " + project } width={ img.width } height={ img.height } decoding="async" loading="lazy" />
     </div>    
-    <article class="stacked-item" data-swiper-parallax="-150">
-        <div data-swiper-parallax="-100">
+    <article class="stacked-item" data-swiper-parallax="-400" data-swiper-parallax-scale="0.5" data-swiper-parallax-duration="500">
+        <div data-swiper-parallax="-400">
             <PersonLogo width={24} height={24} fill="currentColor" class="icon" />
             <p>{ client }</p>
         </div>
-        <div data-swiper-parallax="-200">
+        <div data-swiper-parallax="-500">
             <LocationLogo width={24} height={24} fill="currentColor" class="icon" />
             <p>{ location }</p>
         </div>
-        <div data-swiper-parallax="-300" data-swiper-parallax-duration="1000">
+        <div data-swiper-parallax="-600">
             <DurationLogo width={24} height={24} fill="currentColor" class="icon" />
             <p>{ start } to { end }</p>
         </div>
@@ -32,6 +36,8 @@ import DurationLogo from '../assets/icons/duration-slide-icon.svg';
 <style>
     .icon {
         color: var(--primary-200);
+        flex-grow: 0;
+        flex-shink: 0;
     }
 
     p {
@@ -56,6 +62,7 @@ import DurationLogo from '../assets/icons/duration-slide-icon.svg';
         display: flex;
         flex-flow: column nowrap;
         gap: clamp(0.75rem, 4vw, 1rem);
+        justify-content: flex-start;
 
         position: absolute;
         bottom: clamp(1.5rem, 2.5vw, 2.5rem);
@@ -67,7 +74,7 @@ import DurationLogo from '../assets/icons/duration-slide-icon.svg';
         flex-flow: row nowrap;
         gap: 0.5rem;
         align-items: center;
-
+        justify-content: flex-start;
     }
 
     .bg-cont {
