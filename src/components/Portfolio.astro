@@ -7,10 +7,11 @@ import PreviousIcon from '../assets/icons/previous-media-icon.svg';
 import NextIcon from '../assets/icons/next-media-icon.svg';
 import PlayIcon from '../assets/icons/play-media-icon.svg';
 import PauseIcon from '../assets/icons/pause-media-icon.svg';
+
+import Project1 from '../assets/images/project-1.png';
+import Project2 from '../assets/images/project-2.png';
+import Project3 from '../assets/images/project-3.png';
 ---
-
-
-
 
 <section id="portfolio">
     <div class="wrapper">
@@ -18,9 +19,30 @@ import PauseIcon from '../assets/icons/pause-media-icon.svg';
 
         <div class="swiper">
             <div class="swiper-wrapper">
-                <Slide client="Ahmed Ali Mohammed Al Farsi" location="Mejaz Al Sugra, Saham" start="01/07/2024" end="01/05/2025" img="/images/project-1.png" project="Project 1"/>
-                <Slide client="Ahmed Ali Mohammed Al Farsi" location="Mejaz Al Sugra, Saham" start="01/07/2024" end="01/05/2025" img="/images/hero-desktop.jpg" project="Project 1"/>
-                <Slide client="Ahmed Ali Mohammed Al Farsi" location="Mejaz Al Sugra, Saham" start="01/07/2024" end="01/05/2025" img="/images/decoration.webp"/>
+                <Slide 
+                    client="Ahmed Ali Mohammed Al Farsi" 
+                    location="Mejaz Al Sugra, Saham" 
+                    start="01/07/2024" 
+                    end="01/05/2025" 
+                    img={ Project1 } 
+                    project="Project 1"
+                />
+                <Slide 
+                    client="Aisha Ibrahim Hasan Al Mamari" 
+                    location="Liwa Al Jadidah P.A." 
+                    start="01/07/2025" 
+                    end="30/06/2026" 
+                    img={ Project2 } 
+                    project="Project 2"
+                />
+                <Slide 
+                    client="Meher Khamis Taeeb Chenen Al Kahali" 
+                    location="Um Al-Jareef, Saham" 
+                    start="01/12/2025" 
+                    end="30/11/2026" 
+                    img={ Project3 } 
+                    project="Project 3"
+                />
             </div>
             <div>
                 <div class="progress-bar"><div class="progress" id="progress"></div></div>
@@ -43,51 +65,9 @@ import PauseIcon from '../assets/icons/pause-media-icon.svg';
             </div>
         </div>
     </div>
-
-    
 </section>
 
-<style>
-    div:has(> .progress-bar) {
-        background-color: var(--white-95);
-        width: 100%;
-        height: 1rem;
-        position: absolute;
-        bottom: 0;
-        z-index: 10;
-    }
-
-    .progress-bar {
-        background-color: var(--white-85);
-        width: 100%;
-        height: 100%;
-        border-bottom-left-radius: var(--border-radius);
-        border-bottom-right-radius: var(--border-radius);
-        overflow: hidden;
-    }
-
-    .progress {
-        background-color: var(--primary-400);
-        height: 100%;
-        transform-origin: left;
-        animation-name: progressBarAnimation;
-        animation-duration: 5s;
-        animation-timing-function: linear;
-        animation-fill-mode: forwards;
-    }
-
-    section:has(#pauseBtn[data-slider-autoplay="false"]) .progress {
-        opacity: 0.9;
-        animation-play-state: paused !important; 
-    }
-
-    @keyframes progressBarAnimation {
-        from {transform: scaleX(0%)}
-        to {transform: scaleX(100%)}
-    }
-</style>
-
-
+<!-- Script for the Portfolio Carousel -->
 <script>
     const restartAnimations = ($el:any) => {
         $el.getAnimations().forEach((anim:any) => {
@@ -97,6 +77,8 @@ import PauseIcon from '../assets/icons/pause-media-icon.svg';
     };
 
     const progress = document.getElementById("progress") as HTMLElement | null;
+
+    const autoplayBtn = document.getElementById("pauseBtn") as HTMLButtonElement | null;
 
     import Swiper from 'swiper';
     import { Navigation, Pagination, Autoplay, Parallax, Keyboard, EffectCoverflow} from 'swiper/modules';
@@ -109,7 +91,7 @@ import PauseIcon from '../assets/icons/pause-media-icon.svg';
         },
 
         autoplay: {
-            delay: 5000,
+            delay: 10000,
             disableOnInteraction: false,
         },
 
@@ -117,9 +99,11 @@ import PauseIcon from '../assets/icons/pause-media-icon.svg';
 
         effect: 'coverflow',
 
+        coverflowEffect: {
+            rotate: 60,
+        },
 
         loop: true,
-
 
         pagination: {
             el: '.swiper-pagination',
@@ -131,9 +115,6 @@ import PauseIcon from '../assets/icons/pause-media-icon.svg';
             prevEl: '.swiper-button-prev',
             addIcons: false,
         },
-
-
-
 
         parallax: true,
 
@@ -150,8 +131,6 @@ import PauseIcon from '../assets/icons/pause-media-icon.svg';
             }
         }
     });
-
-    const autoplayBtn = document.getElementById("pauseBtn") as HTMLButtonElement | null;
 
     autoplayBtn?.addEventListener("click", () => {
         if (autoplayBtn.dataset.sliderAutoplay === "true") {
@@ -192,18 +171,12 @@ import PauseIcon from '../assets/icons/pause-media-icon.svg';
         margin-bottom: 2rem;
     }
 
-    .swiper {
-        /* border-radius: var(--border-radius);
-        overflow: hidden; */
-    }
-
     .swiper-wrapper {
         width: 100%;
         width: clamp(400px, 100%, 1200px);
         height: clamp(16.25rem, 75vh, 40rem);
         container: carousel / size;
         margin: 0;
-        /* border-radius: var(--border-radius); */
     }
 
     .button-container {
@@ -280,6 +253,50 @@ import PauseIcon from '../assets/icons/pause-media-icon.svg';
         transform: translateX(-50%);
         padding: 0.25rem;
         border-radius: 1rem;
+    }
+
+        div:has(> .progress-bar) {
+        background-color: var(--white-95);
+        width: 100%;
+        height: 1rem;
+        position: absolute;
+        bottom: 0;
+        z-index: 10;
+    }
+
+    .progress-bar {
+        background-color: var(--white-85);
+        width: 100%;
+        height: 100%;
+        border-bottom-left-radius: var(--border-radius);
+        border-bottom-right-radius: var(--border-radius);
+        overflow: hidden;
+    }
+
+    .progress {
+        --autoplay-delay: 10s;
+
+        background-color: var(--primary-400);
+        height: 100%;
+        transform-origin: left;
+        animation-name: progressBarAnimation;
+        animation-duration: var(--autoplay-delay);
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+    }
+
+    section:has(#pauseBtn[data-slider-autoplay="false"]) .progress {
+        opacity: 0.75;
+        animation-play-state: paused !important; 
+    }
+
+    @keyframes progressBarAnimation {
+        from {
+            transform: scaleX(0%);
+        }
+        to {
+            transform: scaleX(100%);
+        }
     }
 
     @media all and (max-width: 36rem)  {
