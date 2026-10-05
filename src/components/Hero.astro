@@ -1,5 +1,7 @@
 ---
-import heroBG from '../assets/hero-desktop.jpg';
+import heroBG from '../assets/images/hero-desktop.webp';
+
+import { Image } from 'astro:assets';
 ---
 
 
@@ -14,6 +16,7 @@ import heroBG from '../assets/hero-desktop.jpg';
         <div class="border-div stacked-item"></div>
 
         <div class="hero-bg stacked-item stack">
+            <Image src={ heroBG } alt="Hero Image for Desktop" width={ heroBG.width} height={ heroBG.height } class="stacked-item"/>
             <div class="stacked-item background-overlay"></div>
             <div class="stacked-item background-overlay-2"></div>
         </div>
@@ -118,40 +121,36 @@ import heroBG from '../assets/hero-desktop.jpg';
         top: 0;
         left: 0;
         overflow: hidden;
-        background-image: url("/images/hero-desktop.webp");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
     }
 
-    img {
-        min-height: 50px;
-        height: clamp(50px, min(9.375vw, 16vh), 150px);
-        max-height: 150px;
-
-        max-width: 150px;
-        width: clamp(50px, min(9.375vw, 16vh), 150px);
-        min-width: 50px;
+    .hero-bg > img {
+        z-index:0;
+        width:100%;
+        height:inherit;
+        object-fit:cover;
     }
+
 
     .background-overlay {
         width: 100%;
-        height: 100%;
+        height: inherit;
         background-image: linear-gradient(
             90deg,
             hsla(0, 0%, 100%, 0.9) 0%, 
             hsla(0, 0%, 100%, 0.65) 45%, 
             hsla(0, 0%, 100%, 0) 65% 
-        )
+        );
+        z-index: 1;
     }
 
     .background-overlay-2 {
         width: 100%;
-        height: 100%;
+        height: inherit;
         background-image: linear-gradient(
             hsla(0, 99%, 48%, 0) 80%, 
             hsla(0, 0%, 95%, 1) 100% 
-        )
+        );
+        z-index: 2;
     }
 
     h3 {
@@ -177,6 +176,16 @@ import heroBG from '../assets/hero-desktop.jpg';
         width: 100%;
         gap: 2rem;
         margin-top: 2rem;
+    }
+
+    .brand-carousel > img {
+        min-height: 50px;
+        height: clamp(50px, min(9.375vw, 16vh), 150px);
+        max-height: 150px;
+
+        max-width: 150px;
+        width: clamp(50px, min(9.375vw, 16vh), 150px);
+        min-width: 50px;
     }
 
     @media all and (max-width: 36rem) {
