@@ -156,6 +156,7 @@ import Project3 from '../assets/images/project-3.png';
     section {
         border-top: var(--border-dark);
         padding-inline: 2rem;
+        scroll-margin-top: -3rem;
     }
 
     .wrapper {
@@ -174,7 +175,7 @@ import Project3 from '../assets/images/project-3.png';
     .swiper-wrapper {
         width: 100%;
         width: clamp(400px, 100%, 1200px);
-        height: clamp(16.25rem, 75vh, 40rem);
+        height: clamp(16.25rem, 75vh, 60rem);
         container: carousel / size;
         margin: 0;
     }
@@ -191,9 +192,9 @@ import Project3 from '../assets/images/project-3.png';
         color: var(--white-95);
         background-color: var(--primary-400);
         border: 1px solid var(--gray);
-        padding: 0.5rem;
-        width: 3rem;
-        height: 3rem;
+        padding: 0.75rem;
+        width: clamp(2.5rem, 3vw, 3rem);
+        height: clamp(2.5rem, 3vw, 3rem);
 
         transition: all ease-in-out 0.25s;
         transition-delay: 0.1s;
@@ -312,8 +313,12 @@ import Project3 from '../assets/images/project-3.png';
             margin: 0.5rem auto;
         }
 
+        button {
+            padding: 0.5rem;
+        }
+
         div:has(> .progress-bar) {
-            bottom: calc(5rem - 1px);
+            bottom: calc(4.5rem - 1px);
         }
 
         .progress-bar {
