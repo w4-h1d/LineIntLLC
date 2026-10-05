@@ -11,9 +11,9 @@ import DurationLogo from '../assets/icons/duration-slide-icon.svg';
 ---
 
 
-<div class="container swiper-slide" >
+<div class="container swiper-slide">
     <div class="bg-cont">
-        <Image src={ img } alt={ "Image of " + project } width={ img.width } height={ img.height } decoding="async" loading="lazy" />
+        <Image src={ img } alt={ "Image of " + project } width={ img.width } height={ img.height } />
     </div>    
     <article class="stacked-item" data-swiper-parallax="-400" data-swiper-parallax-scale="0.5" data-swiper-parallax-duration="500">
         <div data-swiper-parallax="-400">
@@ -96,6 +96,8 @@ import DurationLogo from '../assets/icons/duration-slide-icon.svg';
         .container {
             border: 1px solid var(--gray);
             position: static;
+            display: flex;
+            flex-flow: column nowrap;
         }
 
         p {
@@ -110,7 +112,9 @@ import DurationLogo from '../assets/icons/duration-slide-icon.svg';
         article {
             position: static;
             background-color: transparent;
-            padding-bottom: 1.75rem;
+            padding-bottom: 1.5rem;
+            flex-grow: 1;
+            flex-basis: 10rem;
         }
 
         .bg-cont  img {
