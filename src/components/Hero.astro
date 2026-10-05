@@ -1,7 +1,15 @@
 ---
 import heroBG from '../assets/images/hero-desktop.webp';
+import GoldenLogo from '../assets/logos/golden-footprint.webp';
+import AsianLogo from '../assets/logos/asian-paints.webp';
+import NationalLogo from '../assets/logos/national-paints.webp';
+import DanubeLogo from '../assets/logos/danube.webp';
+import SterlingLogo from '../assets/logos/sterling-sites.webp';
+
 
 import { Image } from 'astro:assets';
+
+
 ---
 
 
@@ -16,7 +24,7 @@ import { Image } from 'astro:assets';
         <div class="border-div stacked-item"></div>
 
         <div class="hero-bg stacked-item stack">
-            <Image src={ heroBG } alt="Hero Image for Desktop" width={ heroBG.width} height={ heroBG.height } class="stacked-item"/>
+            <Image src={ heroBG } alt="Hero Image for Desktop" width={ heroBG.width} height={ heroBG.height } class="stacked-item" loading="eager" fetchpriority="high"/>
             <div class="stacked-item background-overlay"></div>
             <div class="stacked-item background-overlay-2"></div>
         </div>
@@ -25,11 +33,36 @@ import { Image } from 'astro:assets';
     <section class="partners">
         <h3>Our trusted partners</h3>
         <div class="flex-row brand-carousel">
-            <img src="/logos/golden-footprint.webp" alt="" width="150" height="150" loading="lazy">
-            <img src="/logos/asian-paints.webp" alt="" width="150" height="150" loading="lazy">
-            <img src="/logos/national-paints.webp" alt="" width="150" height="150" loading="lazy">
-            <img src="/logos/danube.webp" alt="" width="150" height="150" loading="lazy">
-            <img src="/logos/sterling-sites.webp" alt="" width="150" height="150" loading="lazy">
+            <Image 
+                src={ GoldenLogo } 
+                alt="The Golden Footprint Logo" 
+                width={ GoldenLogo.width } 
+                height={ GoldenLogo.height }
+            />
+            <Image 
+                src={ AsianLogo } 
+                alt="Asian Paints Logo" 
+                width={ AsianLogo.width } 
+                height={ AsianLogo.height }
+            />
+            <Image 
+                src={ NationalLogo } 
+                alt="National Paints Logo" 
+                width={ NationalLogo.width } 
+                height={ NationalLogo.height }
+            />
+            <Image 
+                src={ DanubeLogo } 
+                alt="The Golden Footprint Logo" 
+                width={ DanubeLogo.width } 
+                height={ DanubeLogo.height }
+            />
+            <Image 
+                src={ SterlingLogo } 
+                alt="The Golden Footprint Logo" 
+                width={ SterlingLogo.width } 
+                height={ SterlingLogo.height }
+            />
         </div>
     </section>
 
@@ -176,6 +209,7 @@ import { Image } from 'astro:assets';
         width: 100%;
         gap: 2rem;
         margin-top: 2rem;
+        padding-inline: 2rem;
     }
 
     .brand-carousel > img {
