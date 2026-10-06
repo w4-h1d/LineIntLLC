@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import CountryCode from '../components/CountryCode.astro';
+import BuildingImg from '../assets/images/building-form-section.webp';
 const { heading } = Astro.props;
 ---
 
@@ -47,7 +49,13 @@ const { heading } = Astro.props;
             </form>
 
             <div class="stack">
-                <img src="/images/building-form-section.webp" alt="" class="form-img stacked-item" width="425" height="636" loading="lazy">
+                <Image 
+                    src={ BuildingImg } 
+                    alt="Building Outline"
+                    width={ BuildingImg.width }
+                    height={ BuildingImg.height }
+                    class="form-img stacked-item"
+                />
                 <img src="/images/form-bg.svg" alt="" class="bg-shape stacked-item" loading="lazy">
             </div>
         </div>
