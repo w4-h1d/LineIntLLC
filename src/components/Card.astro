@@ -1,5 +1,5 @@
 ---
-const {service, description, img, alt, id} = Astro.props;
+const {service, description, img, id} = Astro.props;
 
 const message = "Hello, I would like to enquire about " + service;
 
@@ -8,12 +8,12 @@ const enquiryLink = encodeURI(`https://api.whatsapp.com/send?phone=96896127475&t
 
 <div id={ id } class="container">
     <div class="image-cont">
-        <img src={img} alt={alt} width="400" height="267" loading="lazy">
+        <img src={ img } alt={ service } width="400" height="267" loading="lazy">
     </div>
 
     <article>
-        <h3>{service}</h3>
-        <p>{description}</p>
+        <h3>{ service }</h3>
+        <p>{ description }</p>
         <a href={ enquiryLink } target="_blank">Get a quote <span></span></a>
     </article>
 </div>
