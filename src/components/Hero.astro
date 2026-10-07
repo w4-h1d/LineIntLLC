@@ -12,79 +12,81 @@ import { Image } from 'astro:assets';
 
 
 <section class="section-container">
-    <section class="wrapper stack">
+    <section class="wrapper">
         <section class="hero-text stacked-item">
             <h1>Ready to build your dream?</h1>
             <p>Line International Project L.L.C. delivers professional project solutions and reliable building materials for residential, commercial, and industrial developments. Our commitment to quality, durability, and customer satisfaction has made us a trusted partner for contractors, developers, and homeowners.</p>
             <a href="#contact-form">Start your project</a>
         </section>
 
-        <div class="border-div stacked-item"></div>
-
-        <div class="hero-bg stacked-item stack">
-            <picture class="stacked-item">
-                <source srcset="/images/hero-square-2.webp" media="(max-width: 576px)">
+        <section class="partners">
+            <h2>Our trusted partners</h2>
+            <div class="flex-row brand-carousel">
                 <Image 
-                    src={ heroDesktop } 
-                    alt="Modern Duplex House with Car Parking" 
-                    width={ heroDesktop.width } 
-                    height={ heroDesktop.height }
-                    loading="eager"
-                    fetchpriority="high" 
+                    src={ GoldenLogo } 
+                    alt="The Golden Footprint Logo" 
+                    width={ GoldenLogo.width } 
+                    height={ GoldenLogo.height }
                 />
-            </picture>
-
-            <div class="stacked-item background-overlay"></div>
-            <div class="stacked-item background-overlay-2"></div>
-        </div>
+                <Image 
+                    src={ AsianLogo } 
+                    alt="Asian Paints Logo" 
+                    width={ AsianLogo.width } 
+                    height={ AsianLogo.height }
+                />
+                <Image 
+                    src={ NationalLogo } 
+                    alt="National Paints Logo" 
+                    width={ NationalLogo.width } 
+                    height={ NationalLogo.height }
+                />
+                <Image 
+                    src={ DanubeLogo } 
+                    alt="The Golden Footprint Logo" 
+                    width={ DanubeLogo.width } 
+                    height={ DanubeLogo.height }
+                />
+                <Image 
+                    src={ SterlingLogo } 
+                    alt="The Golden Footprint Logo" 
+                    width={ SterlingLogo.width } 
+                    height={ SterlingLogo.height }
+                />
+            </div>
+        </section>
     </section>
 
-    <section class="partners">
-        <h2>Our trusted partners</h2>
-        <div class="flex-row brand-carousel">
+    <div class="hero-bg stacked-item stack">
+        <picture class="stacked-item">
+            <source srcset="/images/hero-square-2.webp" media="(max-width: 576px)">
             <Image 
-                src={ GoldenLogo } 
-                alt="The Golden Footprint Logo" 
-                width={ GoldenLogo.width } 
-                height={ GoldenLogo.height }
+                src={ heroDesktop } 
+                alt="Modern Duplex House with Car Parking" 
+                width={ heroDesktop.width } 
+                height={ heroDesktop.height }
+                loading="eager"
+                fetchpriority="high" 
             />
-            <Image 
-                src={ AsianLogo } 
-                alt="Asian Paints Logo" 
-                width={ AsianLogo.width } 
-                height={ AsianLogo.height }
-            />
-            <Image 
-                src={ NationalLogo } 
-                alt="National Paints Logo" 
-                width={ NationalLogo.width } 
-                height={ NationalLogo.height }
-            />
-            <Image 
-                src={ DanubeLogo } 
-                alt="The Golden Footprint Logo" 
-                width={ DanubeLogo.width } 
-                height={ DanubeLogo.height }
-            />
-            <Image 
-                src={ SterlingLogo } 
-                alt="The Golden Footprint Logo" 
-                width={ SterlingLogo.width } 
-                height={ SterlingLogo.height }
-            />
-        </div>
-    </section>
+        </picture>
 
+        <div class="stacked-item background-overlay"></div>
+        <div class="stacked-item background-overlay-2"></div>
+    </div>
 </section>
 
 <style>
     .section-container {
-        display: flex;
-        flex-flow: column nowrap;
-        align-items: center;
-        padding-inline: 2rem;
+        padding-inline: var(--outer-padding-inline);
     }
 
+    .wrapper {
+        width: 100%;
+        max-width: var(--max-width);
+        z-index: 1;
+        border-inline: var(--border-dark);
+        margin: 0 auto;
+        position: relative;
+    }
 
     h1 {
         font-size: 6.5rem;
@@ -108,10 +110,7 @@ import { Image } from 'astro:assets';
     }
 
 
-    .wrapper {
-        width: 100%;
-        max-width: var(--max-width);
-    }
+
 
     .hero-text {
         width: 55%;
@@ -171,7 +170,7 @@ import { Image } from 'astro:assets';
 
     picture img {
         display: block;
-        /* z-index: 0; */
+        z-index: 0;
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -213,7 +212,6 @@ import { Image } from 'astro:assets';
         padding: 2rem 2rem 4rem;
         width: 100%;
         max-width: var(--max-width);
-        border-inline: var(--border-dark);
         z-index: 1;
     }
 
