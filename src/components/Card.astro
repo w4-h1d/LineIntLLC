@@ -16,7 +16,7 @@ import { Image } from "astro:assets";
     <article>
         <h3>{ service }</h3>
         <p>{ description }</p>
-        <a href={ enquiryLink } target="_blank">Get a quote <span></span></a>
+        <a href={ enquiryLink } target="_blank" aria-label={"Get a quote about " + service}>Get a quote <span></span></a>
     </article>
 </div>
 

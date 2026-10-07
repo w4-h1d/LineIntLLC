@@ -55,7 +55,7 @@ import Project3 from '../assets/images/project-3.png';
                 <button class="swiper-button-prev">
                     <PreviousIcon width={48} height={48} fill="currentColor" class="media-icon" />
                 </button>
-                <button id="pauseBtn" data-slider-autoplay="true" class="stack">
+                <button id="pauseBtn" data-slider-autoplay="true" class="stack" aria-label="Autoplay">
                     <PlayIcon width={48} height={48} fill="currentColor" class="media-icon play-icon stacked-item"  />
                     <PauseIcon width={48} height={48} fill="currentColor" class="media-icon pause-icon stacked-item"  />
                 </button>
@@ -81,9 +81,9 @@ import Project3 from '../assets/images/project-3.png';
     const autoplayBtn = document.getElementById("pauseBtn") as HTMLButtonElement | null;
 
     import Swiper from 'swiper';
-    import { Navigation, Pagination, Autoplay, Parallax, Keyboard, EffectCoverflow} from 'swiper/modules';
+    import { Navigation, Pagination, Autoplay, Parallax, Keyboard, EffectCoverflow, A11y} from 'swiper/modules';
     const swiper = new Swiper('.swiper', {
-        modules: [Navigation, Pagination, Autoplay, Parallax, Keyboard, EffectCoverflow],
+        modules: [Navigation, Pagination, Autoplay, Parallax, Keyboard, EffectCoverflow, A11y],
 
         a11y: {
             prevSlideMessage: 'Previous slide',
