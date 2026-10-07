@@ -99,9 +99,9 @@ import 'glightbox/dist/css/glightbox.css';
 				--border-light: var(--border-width) solid var(--white-95);
 
 				/* PADDING */
-				--outter-padding-inline: 2rem;
-				--inner-padding-inline: 2rem;
 
+				--inner-padding-inline: clamp(1rem, 2vh, 2rem);
+				--outer-padding-inline: clamp(1.75rem, calc(var(--inner-padding-inline) + 2vw), 3rem);
 			}	
 
 			* {

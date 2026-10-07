@@ -100,14 +100,14 @@ ${description?.value}`;
 
 <style>
     .container {
-        padding-inline: 2rem;
+        padding-inline: var(--outer-padding-inline);
         border-top: var(--border-dark);
     }
 
     .container > section {
         width: 100%;
         max-width: var(--max-width);
-        padding: 2rem;
+        padding: 2rem var(--inner-padding-inline);
         border-inline: var(--border-dark);
         margin: 0 auto;
     }

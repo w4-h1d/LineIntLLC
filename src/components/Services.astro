@@ -76,11 +76,9 @@ import MaintenanceImg from '../assets/images/maintenance.webp';
 <style>
     .container {
         background-color: var(--primary-300);
-        display: flex;
-        flex-flow: column nowrap;
-        align-items: center;
-        padding-inline: 2rem;
-        
+
+        padding-inline: var(--outer-padding-inline);
+
         background-image: url("/images/services-outline-bg.svg");
         background-repeat: no-repeat;
         background-position: bottom;
@@ -91,7 +89,8 @@ import MaintenanceImg from '../assets/images/maintenance.webp';
         max-width: var(--max-width);
         border-inline: var(--border-light);
         width: 100%;
-        padding: 4rem 2rem 8rem;
+        padding: 4rem var(--inner-padding-inline) 8rem;
+        margin: 0 auto;
     }
 
     .services {
@@ -121,8 +120,8 @@ import MaintenanceImg from '../assets/images/maintenance.webp';
         width: 100%;
         border-inline: var(--border-light);
         border-top: var(--border-light);
-        padding: 5rem;
-
+        padding: 5rem var(--inner-padding-inline);
+        margin: 0 auto;
     }
 
     .reasons {
@@ -141,7 +140,7 @@ import MaintenanceImg from '../assets/images/maintenance.webp';
 
     @media all and (max-width: 55rem) {
         .reasons-cont {
-            padding: 3rem 1.5rem;
+            padding: 3rem var(--inner-padding-inline);
         }
         
         .reasons {

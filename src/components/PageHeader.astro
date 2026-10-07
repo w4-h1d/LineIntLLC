@@ -54,14 +54,23 @@ import Logo from '../assets/icons/line-logo.svg';
 
 <style>
     header {
-        display: flex;
-        flex-flow: column nowrap;
-        align-items: center;
         border-bottom: var(--border-dark);
-        padding-inline: 2rem;
+        padding-inline: var(--outer-padding-inline);
         color: var(--primary-200);
         position: relative;
         z-index: 10;
+    }
+
+    div {
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        padding-inline: var(--inner-padding-inline);
+        width: 100%;
+        max-width: var(--max-width);
+        border-inline: var(--border-dark);
+
+        margin: 0 auto;
     }
 
     h2 {
@@ -77,14 +86,7 @@ import Logo from '../assets/icons/line-logo.svg';
         width: 4.5rem;
     }
 
-    div {
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem;
-        width: 100%;
-        max-width: var(--max-width);
-        border-inline: var(--border-dark);
-    }
+
 
     section {
         gap: 1rem;
@@ -190,7 +192,7 @@ import Logo from '../assets/icons/line-logo.svg';
             left: 0;
             width: 100%;
             padding-top: 1rem;
-            padding-inline: 2rem;
+            padding-inline: var(--outer-padding-inline);
             transform: translateY(-18rem);
             border-bottom: var(--border-dark);
             transition: all ease-in-out 0.5s;
