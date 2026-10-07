@@ -4,11 +4,13 @@ const {service, description, img, id} = Astro.props;
 const message = "Hello, I would like to enquire about " + service;
 
 const enquiryLink = encodeURI(`https://api.whatsapp.com/send?phone=96896127475&text=${message}.`);
+
+import { Image } from "astro:assets";
 ---
 
 <div id={ id } class="container">
     <div class="image-cont">
-        <img src={ img } alt={ service } width="400" height="267" loading="lazy">
+        <Image src={ img } alt={ service } width={ img.width } height={ img.height }/>
     </div>
 
     <article>
@@ -135,6 +137,7 @@ const enquiryLink = encodeURI(`https://api.whatsapp.com/send?phone=96896127475&t
         transition: all 0.25s;
         object-fit: cover;
         object-position: center;
+        aspect-ratio: 3 / 2;
     }
 
     @media all and (max-width: 64.25rem) {
