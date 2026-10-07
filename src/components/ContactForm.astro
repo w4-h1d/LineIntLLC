@@ -3,6 +3,8 @@ import { Image } from 'astro:assets';
 import CountryCode from '../components/CountryCode.astro';
 import BuildingImg from '../assets/images/building-form-section.webp';
 const { heading } = Astro.props;
+
+import WhatsAppIconSvg from '../assets/icons/whatsapp.svg';
 ---
 
 <section class="container" id="contact-form">
@@ -38,6 +40,7 @@ const { heading } = Astro.props;
                     <textarea id="description" placeholder="Your dream project" required></textarea>
                 </div>
 
+                
 
                 <input type="hidden" name="phone" value="96896127475">
                 <input type="hidden" name="text" value="" id="text">
@@ -46,6 +49,8 @@ const { heading } = Astro.props;
                     <button type="submit" id="submit-btn">Send Message</button>
                     <button type="reset">Clear</button>
                 </div>
+
+                <small>Your message will be sent via WhatsApp.</small>
             </form>
 
             <div class="stack">
@@ -253,6 +258,13 @@ ${description?.value}`;
 
     .required {
         color: var(--red-40);
+    }
+
+    small {
+        text-align: center; 
+        display: block;
+        margin-top: 1rem;
+        color: var(--black-10);
     }
 
 
