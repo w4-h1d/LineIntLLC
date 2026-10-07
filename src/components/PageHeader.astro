@@ -13,11 +13,11 @@ import Logo from '../assets/icons/line-logo.svg';
 
         <nav id="navigation">
             <ul class="flex-row">
-                { Astro.props.page !== "home" && <li><a href="/">Home</a></li>}
-                <li><a href="/#portfolio">Portfolio</a></li>
-                <li><a href="/#services">Services</a></li>
-                { Astro.props.page !== "about" && <li><a href="/about">About&nbsp;Us</a></li>}
-                { Astro.props.page !== "locations" && <li><a href="/locations">Locations</a></li> }
+                { Astro.props.page !== "home" && <li><a href="/" class="nav-link">Home</a></li>}
+                <li><a href="/#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="/#services" class="nav-link">Services</a></li>
+                { Astro.props.page !== "about" && <li><a href="/about" class="nav-link">About&nbsp;Us</a></li>}
+                { Astro.props.page !== "locations" && <li><a href="/locations" class="nav-link">Locations</a></li> }
             </ul>
         </nav>
 
@@ -30,13 +30,23 @@ import Logo from '../assets/icons/line-logo.svg';
             const menuButton = document.getElementById("menuButton");
             const navigation = document.getElementById("navigation");
             
+            const navLinks = document.querySelectorAll(".nav-link");
 
             menuButton?.addEventListener("click", () => {
-                if (navigation !== null ) {
-                    navigation.classList.toggle("open");
-                    menuButton.toggleAttribute("opened");
-                }
+      
+                navigation?.classList.toggle("open");
+                menuButton?.toggleAttribute("opened");
+
             });
+
+            navLinks.forEach(link => {
+                link.addEventListener("click", () => {
+                    navigation?.classList.remove("open");
+                    menuButton?.removeAttribute("opened");
+                })
+            })
+
+
         </script>
     </div>
 </header>
