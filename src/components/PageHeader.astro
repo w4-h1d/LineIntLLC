@@ -2,10 +2,12 @@
 
 import LogoWhiteSVG from '../assets/icons/line-logo-w.svg';
 import LogoSVG from '../assets/icons/line-logo.svg';
+
+const { page, invert } = Astro.props;
 ---
 
 
-<header class="header shrink">
+<header class={ (invert === "true") ? "header shrink invert" : "header shrink" }>
     <div class="flex-row">
         <section class="flex-row">
             <div class="stack">
@@ -21,11 +23,11 @@ import LogoSVG from '../assets/icons/line-logo.svg';
 
         <nav id="navigation">
             <ul class="flex-row">
-                { Astro.props.page !== "home" && <li><a href="/" class="nav-link">Home</a></li>}
+                { page !== "home" && <li><a href="/" class="nav-link">Home</a></li>}
                 <li><a href="/#portfolio" class="nav-link">Portfolio</a></li>
                 <li><a href="/#services" class="nav-link">Services</a></li>
-                { Astro.props.page !== "about" && <li><a href="/about" class="nav-link">About&nbsp;Us</a></li>}
-                { Astro.props.page !== "locations" && <li><a href="/locations" class="nav-link">Locations</a></li> }
+                { page !== "about" && <li><a href="/about" class="nav-link">About&nbsp;Us</a></li>}
+                { page !== "locations" && <li><a href="/locations" class="nav-link">Locations</a></li> }
             </ul>
         </nav>
 
