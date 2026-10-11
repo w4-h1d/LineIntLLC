@@ -34,6 +34,7 @@ const { page, invert } = Astro.props;
 
 	<body>
 		<PageHeader page={ page } invert={ invert } />
+		<div class="scroll-detect"></div>
 		<slot />
 		<PageFooter page={ page }/>
 
@@ -44,6 +45,33 @@ const { page, invert } = Astro.props;
 				touchNavigation: true,
 				loop: true
 			})
+		</script>
+
+		<style>
+			div {
+				width: 100%;
+				height: 1px;
+				background-color: transparent;
+				position: absolute;
+				top: 10px;
+				left: 0;
+			}
+		</style>
+
+		<script>
+			const scrollDetect = document.querySelector(".scroll-detect") as HTMLElement;
+
+            const scrollObserver = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    document.querySelector(".header")?.classList.toggle("shrink", !entry.isIntersecting);
+
+                    console.log(entry);
+                })
+            })
+
+            if (scrollDetect) {
+                scrollObserver.observe(scrollDetect);
+            }
 		</script>
 
 		<style is:global>
