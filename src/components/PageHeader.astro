@@ -1,13 +1,21 @@
 ---
 
-import Logo from '../assets/icons/line-logo.svg';
+import LogoWhiteSVG from '../assets/icons/line-logo-w.svg';
+import LogoSVG from '../assets/icons/line-logo.svg';
 ---
 
 
-<header>
+<header class="header shrink">
     <div class="flex-row">
         <section class="flex-row">
-            <a href="/"><Logo width="72" height="72" role="img" aria-labelledby="company"/></a>
+            <div class="stack">
+                <a href="/" class="stacked-item logo">
+                    <LogoSVG width="72" height="72" role="img" aria-labelledby="company"/>
+                </a>
+                <a href="/" class="stacked-item logo-white">
+                    <LogoWhiteSVG width="72" height="72" role="img" aria-labelledby="company"/>
+                </a>
+            </div>
             <h2 id="company">Line&nbsp;International Project&nbsp;L.L.C.</h2>
         </section>
 
@@ -46,7 +54,22 @@ import Logo from '../assets/icons/line-logo.svg';
                 })
             })
 
+            const heroBG = document.querySelector(".hero-bg") as HTMLElement;
 
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    document.querySelector(".header")?.classList.toggle("shrink", !entry.isIntersecting);
+
+                    console.log(entry);
+                })
+            }, 
+            {
+                threshold: 0.95,
+            })
+
+            if (heroBG) {
+                observer.observe(heroBG);
+            }
         </script>
     </div>
 </header>
@@ -54,42 +77,62 @@ import Logo from '../assets/icons/line-logo.svg';
 
 <style>
     header {
-        border-bottom: var(--border-dark);
+        --font-color: var(--primary-900);
+        --border: var(--border-light);
+        --transition-time: 0.35s;
+
+        border-bottom: var(--border);
+        border-color: var(--font-color);
         padding-inline: var(--outer-padding-inline);
-        color: var(--primary-200);
-        position: relative;
+        color: var(--font-color);
+        position: sticky;
+        width: 100%;
+        top: 0;
         z-index: 10;
+        
+        transition: all ease-in-out var(--transition-time);
     }
 
-    div {
+    header > div {
         justify-content: space-between;
         align-items: center;
         padding: 1rem;
         padding-inline: var(--inner-padding-inline);
         width: 100%;
         max-width: var(--max-width);
-        border-inline: var(--border-dark);
-
+        border-inline: var(--border);
+        border-color: var(--font-color);
         margin: 0 auto;
+        transition: all ease-in-out var(--transition-time);
     }
+
 
     h2 {
         font-family: var(--inter);
         font-weight: 500;
         font-optical-sizing: auto;
         font-size: var(--font-28);
+        color: var(--primary-900);
+        transition: color ease-in-out var(--transition-time);
     }
 
     svg {
         margin-top: 0.5rem;
         height: 4.5rem;
         width: 4.5rem;
+
+        transition: all ease-in-out var(--transition-time);
     }
 
 
 
     section {
         gap: 1rem;
+        transition: all ease-in-out var(--transition-time);
+    }
+
+    nav {
+        transition: all ease-in-out var(--transition-time);
     }
 
     ul {
@@ -111,10 +154,10 @@ import Logo from '../assets/icons/line-logo.svg';
         height: 2.5rem;
         min-width: 2rem;
         min-height: 2rem;
-        border: 1px solid var(--primary-200);
+        border: 1px solid var(--primary-900);
         border-radius: 0.5rem;
         cursor: pointer;
-        transition: all ease-in-out 0.25s;
+        transition: all ease-in-out var(--transition-time);
         transform-origin: center;
         background-color: transparent;
 
@@ -154,6 +197,44 @@ import Logo from '../assets/icons/line-logo.svg';
         width: 100%;
     }
 
+    .logo {
+        opacity: 0;
+    }
+
+    .shrink {
+        --font-color: var(--primary-200);
+        transform: translateY(-1.5rem);
+        background-color: var(--white-95);
+        box-shadow: var(--box-shadow);
+
+        h2 {
+            color: var(--primary-200);
+        }
+
+        svg {
+            transform: scale(0.75);
+        }
+
+        div > section, div > nav:not(.open), button {
+            transform: translateY(0.75rem);
+        }
+
+        button {
+            border-color: var(--primary-200);
+        }
+
+        .logo-white {
+            opacity: 0;
+        }
+
+        .logo {
+            opacity: 1;
+        }
+
+        .button-icon, .button-icon::after, .button-icon::before {
+            background-color: var(--primary-200);
+        }
+    }
 
 
     @media all and (max-width: 70rem) {
@@ -179,12 +260,38 @@ import Logo from '../assets/icons/line-logo.svg';
     @media all and (max-width: 55rem) {
 
         header {
-            transition: background-color 0.5s;
+            transition: all ease-in-out 0.5s;
         }
 
         header:has(button[opened]), div:has(button[opened]) {
             background-color: var(--white-95);
+
+            .logo-white {
+                opacity: 0;
+            }
+
+            .logo {
+                opacity: 1;
+            }
+
+
+            h2 {
+                color: var(--primary-200);
+            }
+
+            > div {
+                border-inline: var(--border-dark);
+            }
+
+            button {
+                border-color: var(--primary-200);
+            }
+
+            .button-icon, .button-icon::after, .button-icon::before {
+                background-color: var(--primary-200);
+            }
         }
+
 
         nav {
             position: absolute;
@@ -195,10 +302,16 @@ import Logo from '../assets/icons/line-logo.svg';
             padding-inline: var(--outer-padding-inline);
             transform: translateY(-18rem);
             border-bottom: var(--border-dark);
-            transition: all ease-in-out 0.5s;
+            transition: all ease-in-out calc(var(--transition-time) * 2);
             z-index: -1;
-            background-color: var(--white-95) ;
+            background-color: var(--white-95);
+            color: var(--primary-200);
         }
+
+        .shrink > div > nav:not(.open) {
+            transform: translateY(-18rem);
+        }
+
 
         ul {
             flex-flow: column nowrap;
@@ -244,7 +357,7 @@ import Logo from '../assets/icons/line-logo.svg';
         .button-icon, .button-icon::after, .button-icon::before {
             display: block;
             height: 2px;
-            background-color: var(--primary-200);
+            background-color: var(--primary-900);
             border-radius: 1rem;
             transition: all ease-in-out 0.5s;
         }
