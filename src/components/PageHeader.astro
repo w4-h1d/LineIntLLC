@@ -55,23 +55,6 @@ const { page, invert } = Astro.props;
                     menuButton?.removeAttribute("opened");
                 })
             })
-
-            const heroBG = document.querySelector(".hero-bg") as HTMLElement;
-
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    document.querySelector(".header")?.classList.toggle("shrink", !entry.isIntersecting);
-
-                    console.log(entry);
-                })
-            }, 
-            {
-                threshold: 0.95,
-            })
-
-            if (heroBG) {
-                observer.observe(heroBG);
-            }
         </script>
     </div>
 </header>
@@ -207,7 +190,7 @@ const { page, invert } = Astro.props;
     }
 
     header:is(.invert):not(.shrink) {
-        --font-color: var(--primary-900);
+        --font-color: var(--white-95);
 
         .logo {
             opacity: 0;
