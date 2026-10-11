@@ -7,7 +7,7 @@ const { page, invert } = Astro.props;
 ---
 
 
-<header class={ (invert === "true") ? "header shrink invert" : "header shrink" }>
+<header class={ (invert === "true") ? "header invert" : "header" }>
     <div class="flex-row">
         <section class="flex-row">
             <div class="stack">
@@ -79,7 +79,7 @@ const { page, invert } = Astro.props;
 
 <style>
     header {
-        --font-color: var(--primary-900);
+        --font-color: var(--primary-200);
         --border: var(--border-light);
         --transition-time: 0.35s;
 
@@ -114,7 +114,6 @@ const { page, invert } = Astro.props;
         font-weight: 500;
         font-optical-sizing: auto;
         font-size: var(--font-28);
-        color: var(--primary-900);
         transition: color ease-in-out var(--transition-time);
     }
 
@@ -156,7 +155,7 @@ const { page, invert } = Astro.props;
         height: 2.5rem;
         min-width: 2rem;
         min-height: 2rem;
-        border: 1px solid var(--primary-900);
+        border: 1px solid var(--font-color);
         border-radius: 0.5rem;
         cursor: pointer;
         transition: all ease-in-out var(--transition-time);
@@ -200,24 +199,36 @@ const { page, invert } = Astro.props;
     }
 
     .logo {
+        opacity: 1;
+    }
+
+    .logo-white {
         opacity: 0;
     }
 
+    header:is(.invert):not(.shrink) {
+        --font-color: var(--primary-900);
+
+        .logo {
+            opacity: 0;
+        }
+
+        .logo-white {
+            opacity: 1;
+        }
+    }
+
     .shrink {
-        --font-color: var(--primary-200);
         transform: translateY(-1.5rem);
         background-color: var(--white-95);
         box-shadow: var(--box-shadow);
 
-        h2 {
-            color: var(--primary-200);
-        }
 
         svg {
             transform: scale(0.75);
         }
 
-        div > section, div > nav:not(.open), button {
+        div > section, div > nav, button {
             transform: translateY(0.75rem);
         }
 
@@ -265,17 +276,8 @@ const { page, invert } = Astro.props;
             transition: all ease-in-out 0.5s;
         }
 
-        header:has(button[opened]), div:has(button[opened]) {
+        header:has(button[opened]) {
             background-color: var(--white-95);
-
-            .logo-white {
-                opacity: 0;
-            }
-
-            .logo {
-                opacity: 1;
-            }
-
 
             h2 {
                 color: var(--primary-200);
@@ -283,6 +285,7 @@ const { page, invert } = Astro.props;
 
             > div {
                 border-inline: var(--border-dark);
+                background-color: var(--white-95);
             }
 
             button {
@@ -291,6 +294,16 @@ const { page, invert } = Astro.props;
 
             .button-icon, .button-icon::after, .button-icon::before {
                 background-color: var(--primary-200);
+            }
+        }
+
+        header:is(.invert):has(button[opened]) {
+            .logo {
+                opacity: 1;
+            }
+
+            .logo-white {
+                opacity: 0;
             }
         }
 
@@ -310,7 +323,7 @@ const { page, invert } = Astro.props;
             color: var(--primary-200);
         }
 
-        .shrink > div > nav:not(.open) {
+        .shrink nav:not(.open) {
             transform: translateY(-18rem);
         }
 
@@ -352,14 +365,16 @@ const { page, invert } = Astro.props;
             align-items: center;
         }
 
-        .open {
+        .open, .shrink .open {
             transform: translateY(4.75rem);
         }
+
+
 
         .button-icon, .button-icon::after, .button-icon::before {
             display: block;
             height: 2px;
-            background-color: var(--primary-900);
+            background-color: var(--font-color);
             border-radius: 1rem;
             transition: all ease-in-out 0.5s;
         }
