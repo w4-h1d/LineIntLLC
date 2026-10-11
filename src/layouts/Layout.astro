@@ -4,6 +4,8 @@ import PageFooter from "../components/PageFooter.astro";
 import { Font } from "astro:assets";
 
 import 'glightbox/dist/css/glightbox.css';
+
+const { page, invert } = Astro.props;
 ---
 
 <!doctype html>
@@ -31,9 +33,9 @@ import 'glightbox/dist/css/glightbox.css';
 	</head>
 
 	<body>
-		<PageHeader page={Astro.props.page}/>
+		<PageHeader page={ page } invert={ invert } />
 		<slot />
-		<PageFooter page={Astro.props.page}/>
+		<PageFooter page={ page }/>
 
 		<script>
 			import GLightBox from 'glightbox';
@@ -122,7 +124,6 @@ import 'glightbox/dist/css/glightbox.css';
 				min-block-size: 100svh;
 				display: grid;
 				grid-template-rows: auto 1fr auto;
-				
 			}
 
 			.flex-row {
