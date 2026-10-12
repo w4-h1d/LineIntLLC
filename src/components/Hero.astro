@@ -1,6 +1,9 @@
 ---
 import heroDesktop from '../assets/images/hero-desktop.webp';
 
+import PlayIcon from '../assets/icons/play-media-icon.svg';
+import PauseIcon from '../assets/icons/pause-media-icon.svg';
+
 import GoldenLogo from '../assets/logos/golden-footprint.webp';
 import AsianLogo from '../assets/logos/asian-paints.webp';
 import NationalLogo from '../assets/logos/national-paints.webp';
@@ -11,14 +14,24 @@ import { Image } from 'astro:assets';
 ---
 
 
-<section class="section-container">
-    <section class="wrapper">
-        <section class="hero-text stacked-item">
-            <h1>Ready to build your dream?</h1>
-            <p>Line International Project L.L.C. delivers professional project solutions and reliable building materials for residential, commercial, and industrial developments. Our commitment to quality, durability, and customer satisfaction has made us a trusted partner for contractors, developers, and homeowners.</p>
-            <a href="#contact-form">Start your project</a>
-        </section>
+<section class="hero section-container">
+    <section class="wrapper ">
+        <div class="hero-text-cont">
+            <section class="hero-text">
+                <h1>Ready to build your dream?</h1>
+                <p>Line International Project L.L.C. delivers professional project solutions and reliable building materials for residential, commercial, and industrial developments. Our commitment to quality, durability, and customer satisfaction has made us a trusted partner for contractors, developers, and homeowners.</p>
+                <a href="#contact-form">Start your project</a>
+            </section>
 
+            <button data-video-play="true" class="stack" aria-label="Video Play/Pause Button">
+                <PlayIcon width={48} height={48} fill="currentColor" class="media-icon play-icon stacked-item" />
+                <PauseIcon width={48} height={48} fill="currentColor" class="media-icon pause-icon stacked-item" />
+                <span class="button-bg"></span>
+            </button>
+        </div>
+    </section>
+
+    <div>
         <section class="partners">
             <h2>Our trusted partners</h2>
             <div class="flex-row brand-carousel">
@@ -54,9 +67,14 @@ import { Image } from 'astro:assets';
                 />
             </div>
         </section>
-    </section>
+    </div>
+
 
     <div class="hero-bg stacked-item stack">
+        <video autoplay loop muted class="stacked-item" data-bg-video>
+            <source src="promo.mp4" type="video/mp4" >
+        </video>
+
         <picture class="stacked-item">
             <source srcset="/images/hero-square-2.webp" media="(max-width: 576px)">
             <Image 
@@ -70,23 +88,38 @@ import { Image } from 'astro:assets';
         </picture>
 
         <div class="stacked-item background-overlay"></div>
-        <div class="stacked-item background-overlay-2"></div>
     </div>
 </section>
 
+<script>
+    const videoPlayBtn = document.querySelector("[data-video-play]") as HTMLButtonElement | null;
+    const video = document.querySelector("[data-bg-video]") as HTMLVideoElement | null;
+
+    videoPlayBtn?.addEventListener("click", () => {
+        if (video?.paused) {
+            video.play();
+            video.classList.remove("hide");
+            videoPlayBtn.dataset.videoPlay = "true";
+        } else {
+            video?.pause();
+            video?.classList.add("hide");
+            videoPlayBtn.dataset.videoPlay = "false";
+        }
+    });
+</script>
+
 <style>
-    .section-container {
-        padding-inline: var(--outer-padding-inline);
+    .hide {
+        opacity: 0;
     }
 
     .wrapper {
         width: 100%;
-        max-width: var(--max-width);
-        z-index: 1;
-        border-inline: var(--border-dark);
-        margin: 0 auto;
         position: relative;
+        z-index: 2;
+        padding-inline: var(--outer-padding-inline);
     }
+
 
     h1 {
         font-size: 6.5rem;
@@ -94,6 +127,7 @@ import { Image } from 'astro:assets';
         line-height: 1.15;
         font-weight: 400;
         color: var(--primary-200);
+        color: var(--primary-900);
         margin-top: 2rem;
         margin-top: clamp(1rem, 2.5vh, 2rem);
     }
@@ -105,34 +139,101 @@ import { Image } from 'astro:assets';
         margin-top: 2rem;
         margin-top: clamp(1rem, max(3vh, 3vw), 2rem);
         text-wrap: pretty;
-        color: var(--black-10);
+        color: var(--primary-900);
+        opacity: 0.85;
         font-weight: 500;
     }
 
 
+    .hero-text-cont {
+        border-inline: var(--border-light);
+        border-color: var(--primary-900);
+        margin: 0 auto;
+        width: 100%;
+        max-width: var(--max-width);
+        min-height: calc(min(100vh, 67.5rem) - 7.25rem - 2px);
 
+        position: relative;
+    }
 
     .hero-text {
         width: 55%;
-        width: clamp(16rem, 50vw, 49.5rem);
-        padding: 2rem;
+        width: clamp(16rem, 55vw, 49.5rem);
+        padding: 2rem 4rem;
         z-index: 2;
         display: flex;
         flex-flow: column nowrap;
         align-items: center;
     }
 
-    .border-div {
-        border-inline: var(--border-dark);
+
+    button {
+        position: absolute;
+        bottom: var(--inner-padding-inline);
+        right: var(--inner-padding-inline);
+        width: 3rem;
+        height: 3rem;
+        padding: 0.5rem;
+        border-radius: 0.75rem;
+        background-color: transparent;
+        border: 1px solid var(--white-95);
+        cursor: pointer;
+        overflow: hidden;
+        transition: all ease-in-out 0.25s;
+    }
+
+    button svg {
         width: 100%;
         height: 100%;
-        z-index: 1;
+        color: var(--white-95);
+    }
+
+    .button-bg {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        background-color: var(--primary-400);
+        width: 10%;
+        height: 100%;
+        border-radius: 2rem;
+        z-index: -1;
+        transform: translateX(-50%) translateY(100%);
+        transition: all 0.35s;
+    }
+
+    button:hover > .button-bg {
+        left: 0;
+        transform: translateX(0) translateY(0);
+        border-radius: 0.425rem;
+        width: 100%;
+    }
+
+    button:active {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+
+    button[data-video-play="true"] .pause-icon {
+        opacity: 1;
+    }
+
+    button[data-video-play="false"] .pause-icon {
+        opacity: 0;
+    }
+
+    button[data-video-play="true"] .play-icon {
+        opacity: 0;
+    }
+
+    button[data-video-play="false"] .play-icon {
+        opacity: 1;
     }
 
     a {
         display: inline-block;
-        background-color: var(--primary-400);
-        color: var(--white-95);
+        background-color: var(--primary-900);
+        color: var(--primary-200);
         padding: clamp(0.75rem, 1vw, 1rem) clamp(1.5rem, 2vw, 2.25rem);
         font-size: var(--font-24);
         border-radius: 0.75rem;
@@ -144,7 +245,8 @@ import { Image } from 'astro:assets';
     }
 
     a:hover {
-        background-color: var(--primary-200);
+        background-color: var(--primary-400);
+        color: var(--primary-900);
         text-decoration: none;
         opacity: 1;
     }
@@ -157,11 +259,21 @@ import { Image } from 'astro:assets';
     .hero-bg {
         z-index: 0;
         width: 100%;
-        height: clamp(40rem, 65vw, 44rem);
+        height: clamp(50rem, 100vh, 67.5rem);
         position: absolute;
         top: 0;
         left: 0;
         overflow: hidden;
+    }
+
+    video {
+        width: 100%;
+        height: inherit;
+        object-fit: cover;
+        object-position: center;
+        z-index: 2;
+        display: block;
+        transition: opacity ease-in-out 0.25s;
     }
 
     picture {
@@ -172,7 +284,7 @@ import { Image } from 'astro:assets';
         display: block;
         z-index: 0;
         width: 100%;
-        height: 100%;
+        height: inherit;
         object-fit: cover;
     }
 
@@ -180,23 +292,8 @@ import { Image } from 'astro:assets';
     .background-overlay {
         width: 100%;
         height: inherit;
-        background-image: linear-gradient(
-            90deg,
-            hsla(0, 0%, 100%, 0.9) 0%, 
-            hsla(0, 0%, 100%, 0.65) 45%, 
-            hsla(0, 0%, 100%, 0) 65% 
-        );
-        z-index: 1;
-    }
-
-    .background-overlay-2 {
-        width: 100%;
-        height: inherit;
-        background-image: linear-gradient(
-            hsla(0, 99%, 48%, 0) 80%, 
-            hsla(0, 0%, 95%, 1) 100% 
-        );
-        z-index: 2;
+        background-color: hsla(0, 0%, 0%, 0.6);
+        z-index: 10;
     }
 
     h2 {
@@ -208,12 +305,23 @@ import { Image } from 'astro:assets';
         font-weight: 600;
     }
 
+    div:has(.partners) {
+        position: relative;
+        z-index: 2;
+        background-color: var(--white-95);
+        width: 100%;
+        padding-inline: var(--outer-padding-inline);
+    }
+
     .partners {
-        padding: 2rem 2rem 4rem;
+        padding: 2rem var(--inner-padding-inline) 4rem;
         width: 100%;
         max-width: var(--max-width);
-        z-index: 1;
+        margin: 0 auto;
+        border-inline: var(--border-dark);
+
     }
+
 
     .brand-carousel {
         flex-wrap: wrap;
@@ -234,20 +342,31 @@ import { Image } from 'astro:assets';
         min-width: 50px;
     }
 
+
     @media all and (max-width: 36rem) {
-        .hero-text {
-            width: 100%;
+        .hero-text-cont {
+            min-height: 0;
         }
 
-        .background-overlay {
+        .hero-text {
             width: 100%;
-            height: 100%;
-            background: hsla(0, 0%, 100%, 0.325);
+            padding-inline: var(--inner-padding-inline);
         }
-        
-        picture img {
-            display: block;
-            filter: blur(0.5px) contrast(90%) saturate(105%);
+
+        .hero-bg {
+            height: max(100svh, clamp(47rem, 65.5vw, 56rem));
+        }
+
+        p {
+            font-weight: 400;
+        }
+    }
+
+    @media all and (max-width: 26rem) {
+        button {
+            width: 2rem;
+            height: 2rem;
+            padding: 0.5rem;
         }
     }
 
