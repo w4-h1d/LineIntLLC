@@ -1,7 +1,92 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+import ContactForm  from '../components/ContactForm.astro';
 ---
 
 <Layout title="Abous Us | Line International Project L.L.C." page="about">
-	About Us
+	<section>
+		<h1>About Us</h1>
+		<p>
+			Line International Project LLC, established on 24-09-2008, is a trusted provider of comprehensive building solutions, delivering quality workmanship and reliable services across every stage of construction and maintenance. Our expertise includes building construction, pest control services, waterproofing solutions, gypsum decoration, painting, and complete building maintenance.
+		</p>
+
+		<article>
+			<h2>Vision</h2>
+			<p>
+				To be a leading and trusted name in integrated building solutions, recognized for delivering high-quality construction, innovative finishing, and reliable maintenance services that enhance the durability and value of every project.
+			</p>
+		</article>
+
+		<article>
+			<h2>Mission</h2>
+			<p>
+				At Line International Project LLC, our mission is to
+provide comprehensive services—including building
+construction, pest control, waterproofing solutions,
+gypsum decoration, painting, and building maintenance
+—through skilled expertise, quality materials, and a
+strong commitment to customer satisfaction, safety, and
+timely delivery
+			</p>
+		</article>
+
+		<img src="/images/team.jpeg" alt="">
+
+		<section>
+			<h2>Our Core Values</h2>
+
+			<article>
+				<h3>Integrity</h3>
+				<p>
+					Line International Project LLC delivers
+reliable building construction, maintenance,
+waterproofing, pest control, painting, and
+gypsum decoration services with quality,
+integrity, and professionalism.
+
+				</p>
+			</article>
+
+
+			<article>
+				<h3>Innovation</h3>
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo ab temporibus expedita fugiat assumenda odit magnam porro reiciendis ipsam nulla? Necessitatibus distinctio sit sapiente repellendus? Libero labore odit earum culpa!
+				</p>
+			</article>
+
+			<article>
+				<h3>Commitment</h3>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio dolore error reiciendis nemo qui accusantium quibusdam, tempora iste beatae praesentium, odit amet corporis dignissimos eveniet, mollitia neque. Earum, distinctio modi.
+				</p>
+			</article>
+
+			<article>
+				<h3>Collaboration</h3>
+				<p>
+					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam animi sed architecto facere asperiores, error doloremque fuga ducimus deleniti dolores ipsum debitis, omnis repellat numquam ab atque velit. Exercitationem, eligendi!
+				</p>
+			</article>
+		</section>
+
+
+
+	</section>
+	<ContactForm heading="Get in Touch" />
 </Layout>
+
+<style>
+	section {
+		max-width: var(--max-width);
+		border-inline: var(--border-dark);
+		margin: 0 auto;
+		width: 100%;
+		padding-inline: var(--inner-padding-inline);
+	}
+
+	img {
+		max-width: 100%;
+	}
+</style>
