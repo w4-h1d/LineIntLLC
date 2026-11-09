@@ -75,7 +75,7 @@ const { page, invert } = Astro.props;
         top: 0;
         z-index: 10;
         
-        transition: all ease-in-out var(--transition-time);
+        transition: all ease-out var(--transition-time);
     }
 
     header > div {
@@ -88,7 +88,7 @@ const { page, invert } = Astro.props;
         border-inline: var(--border);
         border-color: var(--font-color);
         margin: 0 auto;
-        transition: all ease-in-out var(--transition-time);
+        transition: all ease-out var(--transition-time);
     }
 
 
@@ -97,7 +97,7 @@ const { page, invert } = Astro.props;
         font-weight: 500;
         font-optical-sizing: auto;
         font-size: var(--font-28);
-        transition: color ease-in-out var(--transition-time);
+        transition: color ease-out var(--transition-time);
     }
 
     svg {
@@ -105,18 +105,18 @@ const { page, invert } = Astro.props;
         height: 4.5rem;
         width: 4.5rem;
 
-        transition: all ease-in-out var(--transition-time);
+        transition: all ease-out var(--transition-time);
     }
 
 
 
     section {
         gap: 1rem;
-        transition: all ease-in-out var(--transition-time);
+        transition: all ease-out var(--transition-time);
     }
 
     nav {
-        transition: all ease-in-out var(--transition-time);
+        transition: all ease-out var(--transition-time);
     }
 
     ul {
@@ -141,7 +141,7 @@ const { page, invert } = Astro.props;
         border: 1px solid var(--font-color);
         border-radius: 0.5rem;
         cursor: pointer;
-        transition: all ease-in-out var(--transition-time);
+        transition: all ease-out var(--transition-time);
         transform-origin: center;
         background-color: transparent;
 
@@ -233,14 +233,6 @@ const { page, invert } = Astro.props;
 
 
     @media all and (max-width: 70rem) {
-        /* h2 {
-            font-size: 1.5rem;
-        }
-
-        li > a {
-            font-size: 1rem;
-        } */
-
         svg {
             width: 3rem;
             height: 3rem;
@@ -248,14 +240,13 @@ const { page, invert } = Astro.props;
 
         ul {
             gap: 1.5rem;
-            
         }
     }
 
     @media all and (max-width: 55rem) {
 
         header {
-            transition: all ease-in-out 0.5s;
+            transition: all ease-out var(--transition-time);
         }
 
         header:has(button[opened]) {
@@ -299,7 +290,7 @@ const { page, invert } = Astro.props;
             padding-inline: var(--outer-padding-inline);
             transform: translateY(-18rem);
             border-bottom: var(--border-dark);
-            transition: all ease-in-out calc(var(--transition-time) * 2);
+            transition: all ease-out calc(var(--transition-time) * 2);
             z-index: -1;
             background-color: var(--white-95);
             color: var(--primary-200);
@@ -358,7 +349,7 @@ const { page, invert } = Astro.props;
             height: 2px;
             background-color: var(--font-color);
             border-radius: 1rem;
-            transition: all ease-in-out 0.5s;
+            transition: all ease-out 0.5s;
         }
 
         .button-icon::before, .button-icon::after {
