@@ -22,13 +22,11 @@ const { page, invert } = Astro.props;
 		 <Font cssVariable="--font-inter"/>
 		 <Font cssVariable="--font-azeret-mono"/>
 
-		<link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
 		<script>
-			import Lenis from 'lenis';
+			import LocomotiveScroll from 'locomotive-scroll';
 
-			new Lenis({ autoRaf: true, autoToggle: true, anchors: true, allowNestedScroll: true, naiveDimensions: true, stopInertiaOnNavigate: true })
+			const locomotiveScroll = new LocomotiveScroll();
 		</script>
-
 		
 	</head>
 
